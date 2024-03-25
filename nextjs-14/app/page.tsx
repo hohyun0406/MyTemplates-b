@@ -4,7 +4,8 @@ import { useState } from "react";
 import axios from "axios";
 import Link from "next/link";
 
-const SERVER = `http://localhost:8080/`;
+const SERVER = `http://localhost:8080`;
+
 export default function Home() {
   const [name, setName] = useState("");
 
@@ -13,8 +14,8 @@ export default function Home() {
   };
 
   const handleClick = () => {
-    alert('리퀘스트로 보낸 이름 : '+name);
-    const url = `${SERVER}name`;
+    alert("리퀘스트로 보낸 이름 : " + name);
+    const url = `${SERVER}/name`;
     const data = { name: name };
     const config = {
       headers: {
@@ -26,7 +27,7 @@ export default function Home() {
     };
 
     axios.post(url, data, config).then((res) => {
-      alert("리스판스가 가져온 이름 : " + JSON.stringify(res.data));
+      alert("리스판스가 가져온 이름 : " + JSON.stringify(res.data.name));
     });
   };
 
@@ -36,9 +37,10 @@ export default function Home() {
       <input type="text" onChange={handleChange} />
       <br />
       <button onClick={handleClick}>버튼</button>
-      <br/>
-      <br/>
-      <Link href={"/join"}>회원가입</Link><br />
+      <br />
+      <br />
+      <Link href={"/join"}>회원가입</Link>
+      <br />
       <Link href={"/login"}>로그인</Link>
     </>
   );
