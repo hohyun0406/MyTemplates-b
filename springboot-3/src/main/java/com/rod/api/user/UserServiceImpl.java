@@ -13,109 +13,91 @@ public class UserServiceImpl extends AbstractService<User> implements UserServic
 
     @Override
     public String addUsers() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'addUsers'");
+        return null;
     }
 
     @Override
     public String login(User user) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'login'");
+        return null;
     }
 
     @Override
     public String updatePassword(User user) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'updatePassword'");
+        return null;
     }
 
     @Override
     public List<?> findUsersByName(String name) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'findUsersByName'");
+        return null;
     }
 
     @Override
     public Map<String, ?> findUsersByNameFromMap(String name) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'findUsersByNameFromMap'");
+        return null;
     }
 
     @Override
     public List<?> findUsersByJob(String job) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'findUsersByJob'");
+        return null;
     }
 
     @Override
     public Map<String, ?> findUsersByJobFromMap(String job) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'findUsersByJobFromMap'");
+        return null;
     }
 
     @Override
     public Map<String, ?> getUserMap() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getUserMap'");
+        return null;
     }
 
     @Override
     public String test() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'test'");
+        return null;
     }
 
     @Override
     public List<?> findUsers() throws SQLException {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'findUsers'");
+        return null;
     }
 
     @Override
     public Messenger createUsers() throws SQLException {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'createUsers'");
+        return null;
     }
 
     @Override
-    public Messenger save(User t) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'save'");
+    public Messenger save(User user) {
+        return null;
     }
 
     @Override
     public List<User> findAll() throws SQLException {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'findAll'");
+        return null;
     }
 
     @Override
     public Optional<User> findById(Long id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'findById'");
+        return Optional.empty();
     }
 
     @Override
     public String count() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'count'");
+        return null;
     }
 
     @Override
     public Optional<User> getOne(String id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getOne'");
+        return Optional.empty();
     }
 
     @Override
-    public String delete(User t) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'delete'");
+    public String delete(User user) {
+        return null;
     }
 
     @Override
     public Boolean existsById(Long id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'existsById'");
+        return null;
     }
 }

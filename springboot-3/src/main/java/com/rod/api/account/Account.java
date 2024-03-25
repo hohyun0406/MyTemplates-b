@@ -1,13 +1,18 @@
 package com.rod.api.account;
 
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.Date;
 
+@Entity(name = "accounts")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 @ToString(exclude = {"id"})
 public class Account {
+    @Id
+    @Column(name="account_id",nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String accountNumber;
     private String accountHolder;
