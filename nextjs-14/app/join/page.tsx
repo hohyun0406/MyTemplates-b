@@ -42,7 +42,6 @@ export default function Join() {
       },
     };
     axios.post(url, data, config).then((res) => {
-      
       alert(JSON.stringify(res.data));
       router.push("/login");
     });
