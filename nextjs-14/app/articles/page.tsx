@@ -1,11 +1,12 @@
 'use client'
 
-import axios from "axios";
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import { DataGrid } from '@mui/x-data-grid';
 import { useRouter } from "next/navigation";
+const SERVER = 'http://localhost:8080'
 
-const SERVER = `http://localhost:8080`;
-
-interface ICompany {
+interface IArticle {
   id: number;
   title: string;
   content: string;
@@ -13,23 +14,11 @@ interface ICompany {
   registerDate: string;
 }
 
-const Company = (props: ICompany) => {
-  return (
-    <>
-      <tr key={props.id}>
-        <td>{props.title}</td>
-        <td>{props.content}</td>
-        <td>{props.writer}</td>
-        <td>{props.registerDate}</td>
-      </tr>
-    </>
-  );
-};
-
-export default function Companies() {
+export default function Articles() {
     const router = useRouter();
-    
-  const url = `${SERVER}`;
+    const [articles, setArticles] = useState([])
+
+  const url = `${SERVER}/api/articles`;
   const config = {
     headers: {
       "Cache-Control": "no-cache",
@@ -37,31 +26,33 @@ export default function Companies() {
       Authorization: `Bearer blah ~`,
       "Access-Control-Allow-Origin": "*",
     },
-  };
-  axios.get(url, config).then(res=>{
-    const message = res.data.message
-    alert((message))
-    if(message === 'SUCCESS'){
-        alert("게시글이 있습니다");
+  }
+  useEffect(()=>{
+    axios.get(url, config)
+      .then(res=>{
+        const message = res.data.message
+        console.log((message))
+        if(message === 'SUCCESS'){
+          console.log("게시글이 있습니다");
+          const arr = res.data.result
 
-    } else if (message === 'FAIL'){
-        alert("게시글이 없습니다");
-    } else {
-        alert("지정되지 않은 값")
-    }
+          for (const item of arr){
+            console.log(item)
+          }
+          setArticles(res.data.result)
 
-  });
+      } else if (message === 'FAIL'){
+        console.log("게시글이 없습니다");
+      } else {
+        console.log("지정되지 않은 값")
+      }
+    })
+  },[])
 
-  const companies = [
-    { id: 0, title: "", content: "", writer: "", registerDate: "" },
-  ];
-
-  const companyMap = companies.map((id) => (
-    <Company id={0} title={""} content={""} writer={""} registerDate={""} />
-  ));
-
+  
   return (
     <>
+    <h2>HTML TABLE</h2>
       <table>
         <thead>
           <tr>
@@ -71,7 +62,17 @@ export default function Companies() {
             <th>등록일</th>
           </tr>
         </thead>
-        <tbody>{companyMap}</tbody>
+        <tbody>{articles.map(
+          (props: IArticle) => 
+   (<>
+      <tr key={props.id}>
+        <td>{props.title}</td>
+        <td>{props.content}</td>
+        <td>{props.writer}</td>
+        <td>{props.registerDate}</td>
+      </tr>
+    </>
+  ))}</tbody>
       </table>
     </>
   );

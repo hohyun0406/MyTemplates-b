@@ -1,12 +1,12 @@
 `use client`;
 
-interface IArticle {
+interface ICompany {
   company: string;
   contact: string;
   country: string;
 }
 
-const Article = (props: IArticle) => {
+const Company = (props: ICompany) => {
   return (
     <>
       <tr>
@@ -18,8 +18,8 @@ const Article = (props: IArticle) => {
   );
 };
 
-export default function Articles() {
-  const articles = [
+export default function Companies() {
+  const companies = [
     {company: "Alfreds Futterkiste",contact: "Maria Anders",country: "Germany"},
     {company: "Centro comercial Moctezuma",contact: "Francisco Chang",country: "Mexico"},
     {company: "Ernst Handel", contact: "Roland Mendel", country: "Austria" },
@@ -28,8 +28,8 @@ export default function Articles() {
     {company: "Magazzini Alimentari Riuniti",contact: "Giovanni Rovelli",country: "Italy"},
   ];
 
-  const articleMap = articles.map((v, i) => (
-    <Article key={i} company={v.company} contact={v.contact} country={v.country}
+  const companyMap = companies.map((v, i) => (
+    <Company key={i} {...v}
     />
   ));
 
@@ -44,7 +44,7 @@ export default function Articles() {
             <th>Country</th>
           </tr>
         </thead>
-        <tbody>{articleMap}</tbody>
+        <tbody>{companyMap}</tbody>
       </table>
     </>
   );

@@ -35,7 +35,7 @@ export default function Loginpage() {
       const message = res.data.message;
       alert(message);
       if (message === "SUCCESS") {
-        router.push("/articles/new-article");
+        router.push("/articles");
       } else if (message === "FAIL") {
         alert("FAIL");
       } else if (message === "WRONG_PASSWORD") {
