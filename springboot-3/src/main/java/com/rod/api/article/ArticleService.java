@@ -1,2 +1,5 @@
-package com.rod.api.article;public class ArticleService {
+package com.rod.api.article;
+
+public interface ArticleService {
+
 }
