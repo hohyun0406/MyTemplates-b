@@ -1,9 +1,11 @@
 'use client'
 
 import { useEffect, useState } from 'react';
-import axios from 'axios';
+import axios, { Axios } from 'axios';
 import { DataGrid } from '@mui/x-data-grid';
 import { useRouter } from "next/navigation";
+import { API } from '@/app/atoms/enums/API';
+import AxiosConfig from '@/app/organisms/configs/axios-config';
 const SERVER = 'http://localhost:8080'
 
 interface IArticle {
@@ -18,17 +20,8 @@ export default function Articles() {
     const router = useRouter();
     const [articles, setArticles] = useState([])
 
-  const url = `${SERVER}/api/articles`;
-  const config = {
-    headers: {
-      "Cache-Control": "no-cache",
-      "Content-Type": "application/json",
-      Authorization: `Bearer blah ~`,
-      "Access-Control-Allow-Origin": "*",
-    },
-  }
   useEffect(()=>{
-    axios.get(url, config)
+    axios.get(`${API.SERVER}/articles`, AxiosConfig())
       .then(res=>{
         const message = res.data.message
         console.log((message))

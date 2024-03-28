@@ -3,6 +3,9 @@
 import axios from "axios";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import AxiosConfig from "@/app/organisms/configs/axios-config";
+import { API } from "@/app/atoms/enums/API";
+import { PG } from "@/app/atoms/enums/PG";
 
 const SERVER = `http://localhost:8080`;
 
@@ -31,19 +34,10 @@ export default function Join() {
   const router = useRouter();
 
   const handleClick = () => {
-    const url = `${SERVER}/api/users`;
-    const data = { username, password, name, phone, job };
-    const config = {
-      headers: {
-        "Cache-Control": "no-cache",
-        "Content-Type": "application/json",
-        Authorization: `Bearer blah ~`,
-        "Access-Control-Allow-Origin": "*",
-      },
-    };
-    axios.post(url, data, config).then((res) => {
+
+    axios.post(`${API.SERVER}/users`, { username, password, name, phone, job }, AxiosConfig()).then((res) => {
       alert(JSON.stringify(res.data));
-      router.push("/login");
+      router.push(`${PG.USER}/login`);
     });
   };
 

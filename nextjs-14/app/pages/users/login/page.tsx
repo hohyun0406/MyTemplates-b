@@ -1,5 +1,7 @@
 "use client";
 
+import { API } from "@/app/atoms/enums/API";
+import AxiosConfig from "@/app/organisms/configs/axios-config";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -20,18 +22,8 @@ export default function Loginpage() {
 
   const handleClick = () => {
     alert("리퀘스트로 보낸 이름 : " + username + password);
-    const url = `${SERVER}/api/login`;
-    const data = { username, password };
-    const config = {
-      headers: {
-        "Cache-Control": "no-cache",
-        "Content-Type": "application/json",
-        Authorization: `Bearer blah ~`,
-        "Access-Control-Allow-Origin": "*",
-      },
-    };
 
-    axios.post(url, data, config).then((res) => {
+    axios.post(`${API.SERVER}/login`, { username, password }, AxiosConfig()).then((res) => {
       const message = res.data.message;
       alert(message);
       if (message === "SUCCESS") {
