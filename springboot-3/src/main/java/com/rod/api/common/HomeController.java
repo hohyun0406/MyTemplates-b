@@ -18,7 +18,7 @@ public class HomeController {
         return "Welcome To String Boot !";
     }
 
-    @PostMapping("/name")
+    @PostMapping("/api/name")
     public Map<String,?> name (@RequestBody Map<String,?> map){
         String name = (String)map.get("name");
         System.out.println("리퀘스트가 가져온 이름 : "+name);
