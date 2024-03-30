@@ -1,4 +1,4 @@
-export default function MuiDemoRows (){
+export default function MuiDemoRows(){
     return [
         { id: 1, lastName: 'Snow', firstName: 'Jon', age: 14 },
         { id: 2, lastName: 'Lannister', firstName: 'Cersei', age: 31 },
