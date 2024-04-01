@@ -16,7 +16,7 @@ import java.util.*;
 public class ArticleController {
     private final ArticleServiceImpl service;
     @SuppressWarnings("unchecked")
-    @GetMapping("/api/articles")
+    @GetMapping("/api/all-articles")
     public Map<?,?> findAll() throws SQLException {
         Map<String, Object> map = new HashMap<>();
         map.put("message", Messenger.SUCCESS);

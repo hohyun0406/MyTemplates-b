@@ -3,13 +3,20 @@ package com.rod.api.user;
 import com.rod.api.common.AbstractService;
 import com.rod.api.common.UtilServiceImpl;
 import com.rod.api.enums.Messenger;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.sql.SQLException;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+
+@Service
+@RequiredArgsConstructor
 public class UserServiceImpl extends AbstractService<User> implements UserService {
+    private final UserRepository repository;
+
 
     @Override
     public String addUsers() {
@@ -57,8 +64,8 @@ public class UserServiceImpl extends AbstractService<User> implements UserServic
     }
 
     @Override
-    public List<?> findUsers() throws SQLException {
-        return null;
+    public List findUsers() throws SQLException {
+        return repository.findAll();
     }
 
     @Override
@@ -73,7 +80,7 @@ public class UserServiceImpl extends AbstractService<User> implements UserServic
 
     @Override
     public List<User> findAll() throws SQLException {
-        return null;
+        return repository.findAll();
     }
 
     @Override

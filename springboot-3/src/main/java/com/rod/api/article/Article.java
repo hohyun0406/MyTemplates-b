@@ -16,7 +16,7 @@ public class Article {
     private String title;
     private String content;
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(referencedColumnName = "user_id")
     private User writer;
     private String registerDate;
 

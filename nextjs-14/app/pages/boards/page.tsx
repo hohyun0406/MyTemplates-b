@@ -48,7 +48,7 @@ const ArtilcesPage: NextPage = () => {
     }, [])
     
     return ( <>
-        <h2>HTML TABLE</h2>
+        <h2>ARTICLE TABLE</h2>
           <table>
             <thead>
               <tr>

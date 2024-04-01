@@ -1,12 +1,11 @@
 package com.rod.api.user;
 
+import com.rod.api.article.Article;
 import com.rod.api.enums.Messenger;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.sql.SQLException;
 import java.util.*;
 
 @CrossOrigin(origins = "http://localhost:3000/")
@@ -14,7 +13,9 @@ import java.util.*;
 @RequiredArgsConstructor
 public class UserController {
 
+    private final UserServiceImpl service;
     private final UserRepository repo;
+
 
     @PostMapping("/api/login")
     public Map<String, ?> login(@RequestBody Map<?, ?> paramMap){
@@ -46,6 +47,22 @@ public class UserController {
                 .build());
         System.out.println("DB 에 저장된 User 정보 : " + newUser);
         map.put("result", Messenger.SUCCESS);
+        return map;
+    }
+
+    @SuppressWarnings("unchecked")
+    @GetMapping("/api/all-users")
+    public Map<?,?> findAll() throws SQLException {
+        Map<String, Object> map = new HashMap<>();
+        map.put("message", Messenger.SUCCESS);
+        @SuppressWarnings("unchecked")
+        List<User> list = new ArrayList<>();
+
+
+        list = service.findAll();
+        list.forEach(System.out::println);
+        System.out.println("리스트 사이즈 : "+list.size());
+        map.put("result", list);
         return map;
     }
 
