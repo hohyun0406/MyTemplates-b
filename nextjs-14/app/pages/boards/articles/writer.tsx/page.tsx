@@ -1,30 +1,47 @@
 'use client'
 
-import axios from "axios"
-import { useRouter } from "next/navigation"
-import { DataGrid } from '@mui/x-data-grid';
-import { useState, useEffect } from "react"
-import {Box, Button, Input} from '@mui/material';
-import AxiosConfig from "@/redux/common/configs/axios-config";
-import { API } from "@/redux/common/enums/API";
-import { NextPage } from "next";
-// import React from "react";
+export default function Article1 () {
+    return (
+        <>
+        <h2>html sample</h2>
 
-interface IArticle {
-    id: number,
-    title: string,
-    content: string,
-    writer: string,
-    registerDate: string
+        <table>
+  <tr>
+    <th>Company</th>
+    <th>Contact</th>
+    <th>Country</th>
+  </tr>
+  <tr>
+    <td>Alfreds Futterkiste</td>
+    <td>Maria Anders</td>
+    <td>Germany</td>
+  </tr>
+  <tr>
+    <td>Centro comercial Moctezuma</td>
+    <td>Francisco Chang</td>
+    <td>Mexico</td>
+  </tr>
+  <tr>
+    <td>Ernst Handel</td>
+    <td>Roland Mendel</td>
+    <td>Austria</td>
+  </tr>
+  <tr>
+    <td>Island Trading</td>
+    <td>Helen Bennett</td>
+    <td>UK</td>
+  </tr>
+  <tr>
+    <td>Laughing Bacchus Winecellars</td>
+    <td>Yoshi Tannamuri</td>
+    <td>Canada</td>
+  </tr>
+  <tr>
+    <td>Magazzini Alimentari Riuniti</td>
+    <td>Giovanni Rovelli</td>
+    <td>Italy</td>
+  </tr>
+</table>
+        </>
+    );
 }
-
-const WriterPage: NextPage = () => {
-
-    
-    
-    return (<>
-        
-    </>)
-}
-
-export default WriterPage

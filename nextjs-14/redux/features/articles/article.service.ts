@@ -1,19 +1,26 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { getAllArticlesAPI } from "./article.api";
+import { IArticle } from "./article.model";
+import { fetchAllArticlesAPI } from "./article.api";
 import axios from "axios";
 import { API } from "@/redux/common/enums/API";
 import AxiosConfig, { instance } from "@/redux/common/configs/axios-config";
 
-export const getAllArticles: any = createAsyncThunk(
-  "articles/getAllArticles",
-  async (page: number, { rejectWithValue }) => {
-    console.log("getArticles page : " + page);
+export const fetchAllArticles: any = createAsyncThunk(
+  "articles/fetchAllArticles",
+  async (page: number) => {
+    console.log("fetchAllarticles page : " + page);
+    const data : any = await fetchAllArticlesAPI(1);
 
-    const {message, result}:any = getAllArticlesAPI(1);
-    console.log('------------API를 사용한 경우--------')
-    console.log('message : ' + message)
-    console.log(JSON.stringify(result))
+    const {message, result}:any = data
 
+    return data
+  }
+)
+
+
+    // console.log('------------API를 사용한 경우--------')
+    // console.log('message : ' + message)
+    // console.log(JSON.stringify(result))
 
 
   //   try {
@@ -45,4 +52,4 @@ export const getAllArticles: any = createAsyncThunk(
   //     return rejectWithValue(error);
   //   }
   // }
-  })
+

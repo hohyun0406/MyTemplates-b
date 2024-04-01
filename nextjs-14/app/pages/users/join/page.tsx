@@ -7,17 +7,17 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import AxiosConfig from "@/redux/common/configs/axios-config";
 import { API } from "@/redux/common/enums/API";
-import { PG } from "@/app/atoms/enums/PG";
+import { PG } from "@/redux/common/enums/PG";
 
 
 const JoinPage: NextPage = () => {
-    const [username, setUsername] = useState('')
-    const [password, setPassword] = useState('')
-    const [name, setName] = useState('')
-    const [phone, setPhone] = useState('')
-    const [job, setJob] = useState('')
-    const [height, setHeight] = useState('')
-    const [weight, setWeight] = useState('')
+    const [username, setUsername] = useState("")
+    const [password, setPassword] = useState("")
+    const [name, setName] = useState("")
+    const [phone, setPhone] = useState("")
+    const [job, setJob] = useState("")
+    const [height, setHeight] = useState("")
+    const [weight, setWeight] = useState("")
     const handleUsername = (e: any) => {
         setUsername(e.target.value)
     }
@@ -41,7 +41,7 @@ const JoinPage: NextPage = () => {
     }
     const router = useRouter();
 
-    const handleSubmit = (e: any) => {
+    const handleClick = (e: any) => {
         e.preventDefault()
         axios.post(`${API.SERVER}/users`, 
                     { username, password, name, phone, job, height, weight }, 
@@ -76,7 +76,7 @@ const JoinPage: NextPage = () => {
             <p>By creating an account you agree to our <a href="#" style={{ color: "dodgerblue" }}>Terms & Privacy</a>.</p>
             <div className="clearfix">
                 <button type="button" className="cancelbtn">Cancel</button><br /><br />
-                <button type="submit" className="signupbtn" onClick={handleSubmit}>Sign Up</button>
+                <button type="submit" className="signupbtn" onClick={handleClick}>Sign Up</button>
             </div>
         </div>
     </>)
