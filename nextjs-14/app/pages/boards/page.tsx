@@ -15,6 +15,8 @@ import { NextPage } from "next";
 
 import { fetchAllArticles } from "@/redux/features/articles/article.service";
 import { getAllArticles } from "@/redux/features/articles/article.slice";
+import Columns from '@/app/components/articles/columns';
+import { Box } from '@mui/material';
 
 
 
@@ -26,7 +28,7 @@ interface IArticle {
     registerDate: string
 }
 
-const ArtilcesPage: NextPage = () => {
+const ArtilcesPage: NextPage = ({data}:any) => {
     const dispatch = useDispatch()
 
     const allArticles: [] = useSelector(getAllArticles)
@@ -47,30 +49,22 @@ const ArtilcesPage: NextPage = () => {
         dispatch(fetchAllArticles(1))
     }, [])
     
-    return ( <>
-        <h2>ARTICLE TABLE</h2>
-          <table>
-            <thead>
-              <tr>
-                <th>제목</th>
-                <th>내용</th>
-                <th>작성자</th>
-                <th>등록일</th>
-              </tr>
-            </thead>
-            <tbody>{allArticles?.map(
-              (props: IArticle) => 
-       (<>
-          <tr key={props.id}>
-            <td>{props.title}</td>
-            <td>{props.content}</td>
-            <td>{props.writer}</td>
-            <td>{props.registerDate}</td>
-          </tr>
-        </>
-      ))}</tbody>
-          </table>
-        </>)
+    return (<Box sx={{ height: 400, width: '100%' }}>
+    <DataGrid
+      rows={data}
+      columns={Columns()}
+      initialState={{
+        pagination: {
+          paginationModel: {
+            pageSize: 5,
+          },
+        },
+      }}
+      pageSizeOptions={[5]}
+      checkboxSelection
+      disableRowSelectionOnClick
+    />
+  </Box>)
 }
 
 export default ArtilcesPage

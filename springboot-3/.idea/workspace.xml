@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="f110a2d3-530d-4b16-972e-515e7267845e" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../nextjs-14/app/pages/boards/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../nextjs-14/app/pages/boards/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/rod/api/ApiApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/rod/api/account/Account.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/rod/api/account/AccountController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/rod/api/account/AccountService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/rod/api/account/AccountServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/rod/api/article/Article.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/rod/api/article/ArticleController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/rod/api/article/ArticleRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/rod/api/article/ArticleService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/rod/api/article/ArticleServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/rod/api/board/Board.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/rod/api/board/BoardController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/rod/api/board/BoardRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/rod/api/board/BoardService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/rod/api/board/BoardServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/rod/api/common/AbstractRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/rod/api/common/AbstractService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/rod/api/common/Box.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/rod/api/common/HomeController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/rod/api/common/Inventory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/rod/api/common/UtilService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/rod/api/common/UtilServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/rod/api/crawler/Crawler.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/rod/api/crawler/CrawlerController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/rod/api/crawler/CrawlerRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/rod/api/crawler/CrawlerService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/rod/api/crawler/CrawlerServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/rod/api/enums/Messenger.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/rod/api/product/Item.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/rod/api/proxy/DateProxy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/rod/api/proxy/FileProxy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/rod/api/proxy/MathProxy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/rod/api/proxy/TypeProxy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/rod/api/sql/soccer-data.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/rod/api/sql/soccer-test.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/rod/api/sql/soccer.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/rod/api/user/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/rod/api/user/UserController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/rod/api/user/UserRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/rod/api/user/UserService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/rod/api/user/UserServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/rod/api/ApiApplicationTests.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2dwrOybBeGQfAMdan2t4zYogh0s" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.Build springboot-3.executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.ApiApplication.executor": "Run",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/bitcamp/IdeaProjects/rod/user-spring-api",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.general",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="ApiApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="api.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.rod.api.ApiApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-17.0.10-corretto-17.0.10-4caba194b151-5cd809f4" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f110a2d3-530d-4b16-972e-515e7267845e" name="Changes" comment="" />
+      <created>1710929954125</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1710929954125</updated>
+      <workItem from="1710929955205" duration="430000" />
+      <workItem from="1710930396330" duration="16000" />
+      <workItem from="1710930493302" duration="14000" />
+      <workItem from="1710930512256" duration="30000" />
+      <workItem from="1710930545562" duration="2592000" />
+      <workItem from="1710983703326" duration="3129000" />
+      <workItem from="1710992253836" duration="163000" />
+      <workItem from="1711006885107" duration="1224000" />
+      <workItem from="1711015638601" duration="605000" />
+      <workItem from="1711020649811" duration="657000" />
+      <workItem from="1711076936490" duration="8969000" />
+      <workItem from="1711094637282" duration="2039000" />
+      <workItem from="1711097374900" duration="7000" />
+      <workItem from="1711097438466" duration="137000" />
+      <workItem from="1711097584314" duration="8000" />
+      <workItem from="1711098359757" duration="1440000" />
+      <workItem from="1711344754013" duration="6955000" />
+      <workItem from="1711352399864" duration="2785000" />
+      <workItem from="1711355277467" duration="2144000" />
+      <workItem from="1711357922310" duration="370000" />
+      <workItem from="1711358302945" duration="1789000" />
+      <workItem from="1711361397663" duration="1828000" />
+      <workItem from="1711363238372" duration="176000" />
+      <workItem from="1711363487111" duration="1747000" />
+      <workItem from="1711416447000" duration="21000" />
+      <workItem from="1711416998091" duration="1327000" />
+      <workItem from="1711419527612" duration="154000" />
+      <workItem from="1711430556940" duration="4421000" />
+      <workItem from="1711445172622" duration="2089000" />
+      <workItem from="1711499558592" duration="5167000" />
+      <workItem from="1711509869249" duration="5197000" />
+      <workItem from="1711520256701" duration="6965000" />
+      <workItem from="1711534571678" duration="237000" />
+      <workItem from="1711535593416" duration="43000" />
+      <workItem from="1711535683441" duration="1114000" />
+      <workItem from="1711537044732" duration="126000" />
+      <workItem from="1711585737789" duration="5488000" />
+      <workItem from="1711608033741" duration="8000" />
+      <workItem from="1711614683241" duration="3621000" />
+      <workItem from="1711621795411" duration="239000" />
+      <workItem from="1711672230023" duration="9103000" />
+      <workItem from="1711931383458" duration="589000" />
+      <workItem from="1711932830942" duration="10000" />
+      <workItem from="1711932878604" duration="9693000" />
+      <workItem from="1712017939720" duration="4356000" />
+      <workItem from="1712030743721" duration="1238000" />
+      <workItem from="1712036416535" duration="18000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/rod/api/common/HomeController.java</url>
+          <line>15</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
