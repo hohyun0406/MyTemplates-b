@@ -15,12 +15,14 @@ public class Article {
     private Long id;
     private String title;
     private String content;
-    @ManyToOne
-    @JoinColumn(referencedColumnName = "user_id")
-    private User writer;
-
     @Column(name = "register_date")
     private String registerDate;
+
+    @ManyToOne
+    @JoinColumn
+    private User writer;
+
+
 
     @Builder(builderMethodName = "builder")
     public Article(Long id, String title, String content, User writer, String registerDate) {

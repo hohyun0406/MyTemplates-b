@@ -43,6 +43,8 @@ export const getAllUsers = (state : any) => {
     return state.user.array.result
 }
 
+//result 지워버리면 length 오류는 없어짐.
+
 export const {} = userSlice.actions
 
 export default userSlice.reducer

@@ -6,8 +6,6 @@ export interface IUser{
     phone : string,
     address : string,
     job : string,
-    height : number,
-    weight : number,
     array : []
 }
   

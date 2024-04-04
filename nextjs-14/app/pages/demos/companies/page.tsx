@@ -1,8 +1,8 @@
 `use client`
 
 import { NextPage } from "next";
-import CompanyColums from "@/app/components/columns/company-columns";
-import CompanyRows from "@/app/components/rows/company-row";
+import CompanyColums from "@/app/components/demos/company-columns";
+import CompanyRows from "@/app/components/demos/company-row";
 
 const CompaniesPage : NextPage = () =>{
 

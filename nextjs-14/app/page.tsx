@@ -17,19 +17,11 @@ export default function Home() {
   }
 
   const handleClick = () => {
-    const [name, setName] = useState("");
-
-    const handleChange = (e: any) => {
-      setName(e.target.value);
-    };
+    alert("리퀘스트로 보낸 이름 : " + name);
   
-    const handleClick = () => {
-      alert("리퀘스트로 보낸 이름 : " + name);
-  
-      axios.post(`${API.SERVER}/name`, {name: name}, AxiosConfig()).then((res) => {
-        alert("리스판스가 가져온 이름 : " + JSON.stringify(res.data.name));
-      });
-    };
+    axios.post(`${API.SERVER}/name`, {name: name}, AxiosConfig()).then((res) => {
+      alert("리스판스가 가져온 데이터 : " + JSON.stringify(res.data.name));
+    });
   }
   
 
@@ -45,6 +37,7 @@ export default function Home() {
     <Link href={`${PG.DEMO}/counter`}>카운터 데모</Link><br />
     <Link href={`${PG.DEMO}/redux-counter`} className="underline">리덕스 카운터 데모</Link><br />
     <Link href={`${PG.BOARD}`} className="underline">보드</Link><br />
+    <Link href={`${PG.USER}/list`} className="underline">유저목록</Link><br />
     </div>
   )
 }
