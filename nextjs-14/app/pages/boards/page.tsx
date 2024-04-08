@@ -15,7 +15,7 @@ import { NextPage } from "next";
 
 import { fetchAllArticles } from "@/redux/features/articles/article.service";
 import { getAllArticles } from "@/redux/features/articles/article.slice";
-import Columns from '@/app/components/articles/columns';
+import Columns from '@/app/components/article/columns';
 import { Box } from '@mui/material';
 
 
