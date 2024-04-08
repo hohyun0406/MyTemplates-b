@@ -42,6 +42,9 @@ export const getAllArticles = (state: any) => {
     return state.article.array.result;
 }
 
+//result 지워버리면 length 오류는 없어짐.
+
+
 export const {} = articleSlice.actions
 
 export default articleSlice.reducer;
