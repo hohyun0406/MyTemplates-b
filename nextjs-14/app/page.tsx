@@ -4,9 +4,9 @@ import { useState } from "react"
 import axios from 'axios';
 import Link from "next/link";
 import { Button, Input } from "@mui/material";
-import { PG } from "../redux/common/enums/PG";
-import { API } from "../redux/common/enums/API";
-import AxiosConfig from "@/redux/common/configs/axios-config";
+import { PG } from "../app/components/common/enums/PG";
+import { API } from "../app/components/common/enums/API";
+import AxiosConfig from "@/app/components/common/configs/axios-config";
 
 
 

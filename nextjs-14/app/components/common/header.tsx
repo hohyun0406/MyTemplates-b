@@ -36,6 +36,7 @@ function ResponsiveAppBar() {
       case "회원가입" : router.push("/pages/users/join"); break;
       case "로그인" : router.push("/pages/users/login"); break;
       case "카운터" : router.push("/pages/demos/counter"); break;
+      case "게시판목록" : router.push("/pages/boards/list"); break;
       case "게시글목록" : router.push("/pages/boards"); break;
       case "사용자목록" : router.push("/pages/users/list"); break;
     }
