@@ -3,7 +3,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { createSlice } from "@reduxjs/toolkit";
 import { IBoard } from '../model/board';
 import { initialState } from './board-init';
-import { findAllBoards } from './board-service';
+import { findAllBoards, findBoardById } from './board-service';
 
 const boardThunks = [findAllBoards]
 
@@ -13,17 +13,16 @@ const status = {
     rejected : 'rejected'
 }
 
-const handlePending = (state:any) => {
+// const handlePending = (state:any) => {
     
-}
-const handleFulfilled = (state:any, {payload}: any) => {
-    console.log('------------------ conclusion ---------------')
-    state.array = payload
-    console.log(state.array)
-}
-const handleRejected = (state:any) => {
+// }
+// const handleFulfilled = (state:any, {payload}: any) => {
+//     state.array = payload
+// }
+
+// const handleRejected = (state:any) => {
     
-}
+// }
 
 export const boardSlice = createSlice({
     name: "boards",
@@ -33,17 +32,13 @@ export const boardSlice = createSlice({
         const {pending, rejected} = status;
 
         builder
-        .addCase(findAllBoards.fulfilled, handleFulfilled)
+        .addCase(findAllBoards.fulfilled, (state:any, {payload}:any)=>{state.array=payload})
+        .addCase(findBoardById.fulfilled, (state:any, {payload}:any)=>{state.json=payload})
     }
 })
-export const getAllBoards = (state: any) => {
-    console.log('------------------ Before useSelector ---------------')
-    console.log(JSON.stringify(state.board.array))
-    return state.board.array;
-}
+export const getAllBoards = (state: any) => state.board.array;
 
-//result 지워버리면 length 오류는 없어짐.
-
+export const getBoardById = (state : any) => state.board.json;
 
 export const {} = boardSlice.actions
 

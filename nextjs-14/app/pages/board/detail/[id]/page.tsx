@@ -1,22 +1,29 @@
 'use client'
 
-import { Typography } from "@mui/material"
-import { NextPage } from "next"
+import { IBoard } from "@/app/components/board/model/board"
+import { useEffect } from "react"
+import { useSelector } from "react-redux"
+import { useDispatch } from "react-redux"
 
+import {getBoardById} from '@/app/components/board/service/board-slice'
+import {findBoardById} from '@/app/components/board/service/board-service'
+import { CustomTypography } from "@/app/components/common/style/cell"
 
-export default function BoardDetailPage (props:any) {
-    
-    // useEffect(()=>{
-    //     dispatch(findBoardById(props.params.id))
-    // }, [])
+export default function BoardDetailPage ({params}:any) {
+    const dispatch = useDispatch()
+    const board:IBoard = useSelector(getBoardById)
+
+    useEffect(()=>{
+        dispatch(findBoardById(params.id))
+    },[])
+
 
 
     return(<>
-    
-    {props.params.id}번 게시판 상세
-    {/* <span>ID </span> <Typography textAlign="center" sx={{fontSize="1.5rem"}}> </Typography> */}
-    
-    
+     <div>
+            <h3>{params.id}의 상세 페이지</h3>
+            <span>boardName</span>{CustomTypography(board.boardName,"1.5rem")}
+            <span>boardType</span>{CustomTypography(board.boardType,"1.5rem")}
+        </div>
     </>)
-
 }

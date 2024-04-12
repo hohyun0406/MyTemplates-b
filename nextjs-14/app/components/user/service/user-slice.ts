@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit"
 import { initialState } from "./user-init"
-import { findAllUsers } from "./user-service"
+import { findAllUsers, findUserById } from "./user-service"
 
 
 const status = {
@@ -9,19 +9,13 @@ const status = {
     rejected : 'rejected'
 }
 
-const handlePending = (state:any) =>{
+// const handlePending = (state:any) =>{}
 
-}
+// const handleFulfilled = (state : any, {payload}:any) => {
+//     state.array = payload
+// }
 
-const handleFulfilled = (state : any, {payload}:any) => {
-    console.log('------------conclusion---------')
-    state.array = payload
-    console.log(state.array)
-}
-
-const handleRejected = (state : any) => {
-
-}
+// const handleRejected = (state : any) => {}
 
 
 export const userSlice = createSlice({
@@ -32,7 +26,8 @@ export const userSlice = createSlice({
         const {pending, rejected} = status;
 
         builder
-        .addCase(findAllUsers.fulfilled, handleFulfilled)
+        .addCase(findAllUsers.fulfilled, (state : any, {payload}:any) => {state.array = payload})
+        .addCase(findUserById.fulfilled, (state : any, {payload}:any) => {state.json = payload})
     }
 })
 
@@ -43,6 +38,10 @@ export const getAllUsers = (state : any) => {
 }
 
 //result 지워버리면 length 오류는 없어짐.
+
+
+export const getUserById = (state : any) => { return state.user.json}
+
 
 export const {} = userSlice.actions
 

@@ -10,18 +10,6 @@ import { useSelector } from "react-redux"
 import { useDispatch } from "react-redux"
 
 
-interface IUser {
-    id: number,
-    username : string,
-    password : string,
-    name : string,
-    phone : string,
-    address : string,
-    job : string,
-    height : number,
-    weight : number
-}
-
 const UsersPage: NextPage = () => {
     const [pageSize, setPageSize] = useState(5); // 4-1
     const dispatch = useDispatch()

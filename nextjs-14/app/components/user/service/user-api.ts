@@ -11,3 +11,17 @@ export const findAllUsersAPI = async (page : number) => {
         return error
     }
 }
+
+
+
+export const findUserByIdAPI = async (id : number) => {
+    try{
+        const response = await instance.get('/users/detail', {
+            params : {id}
+        })
+        return response.data
+    }catch(error){
+        console.log('에-러')
+        return error
+    }
+}
