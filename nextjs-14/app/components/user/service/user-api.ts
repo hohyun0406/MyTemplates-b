@@ -12,8 +12,6 @@ export const findAllUsersAPI = async (page : number) => {
     }
 }
 
-
-
 export const findUserByIdAPI = async (id : number) => {
     try{
         const response = await instance.get('/users/detail', {
@@ -22,6 +20,24 @@ export const findUserByIdAPI = async (id : number) => {
         return response.data
     }catch(error){
         console.log('에-러')
+        return error
+    }
+}
+
+export const modifyAPI = async (data : any) => {
+    try{return await instance.get('/users/modify', {
+            params : {data}
+        })
+    }catch(error){
+        return error
+    }
+}
+
+export const deleteByIdAPI = async (id : number) => {
+    try {return await instance.get('/users/delete', {
+        params : {id}
+    })
+    } catch (error) {
         return error
     }
 }
