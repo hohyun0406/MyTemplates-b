@@ -46,7 +46,7 @@ export default function Home() {
       console.log('서버에서 넘어온 메세지'+parseCookies().message)
       console.log('서버에서 넘어온 토큰'+parseCookies().token)
       alert(auth.token)
-      router.push(`/pages/board/list`)
+      router.push(`/pages/board/card`)
     } else {
       console.log('Login Fail YuY')
     }

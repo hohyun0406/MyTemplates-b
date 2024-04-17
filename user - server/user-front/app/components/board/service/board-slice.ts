@@ -2,9 +2,18 @@ import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { createSlice } from "@reduxjs/toolkit";
 import { IBoard } from '../model/board';
-import { initialState } from './board-init';
+
 import { findAllBoards, findBoardById } from './board-service';
 
+export interface BoardState{
+    json? : IBoard,
+    array?: Array<IBoard>
+}
+
+export const initialState:BoardState = {
+   json : {} as IBoard,
+   array : []
+}
 const boardThunks = [findAllBoards]
 
 const status = {
@@ -13,16 +22,6 @@ const status = {
     rejected : 'rejected'
 }
 
-// const handlePending = (state:any) => {
-    
-// }
-// const handleFulfilled = (state:any, {payload}: any) => {
-//     state.array = payload
-// }
-
-// const handleRejected = (state:any) => {
-    
-// }
 
 export const boardSlice = createSlice({
     name: "boards",
@@ -38,7 +37,7 @@ export const boardSlice = createSlice({
 })
 export const getAllBoards = (state: any) => state.board.array;
 
-export const getBoardById = (state : any) => state.board.json;
+export const getSingleBoard = (state : any) => state.board.json;
 
 export const {} = boardSlice.actions
 

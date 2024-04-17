@@ -22,8 +22,8 @@ export default function BoardDetailPage ({params}:any) {
     return(<>
      <div>
             <h3>{params.id}의 상세 페이지</h3>
-            <span>boardName</span>{CustomTypography(board.boardName,"1.5rem")}
-            <span>boardType</span>{CustomTypography(board.boardType,"1.5rem")}
+            <span>boardName</span>{CustomTypography(board.boardTitle,"1.5rem")}
+            <span>boardType</span>{CustomTypography(board.discription,"1.5rem")}
         </div>
     </>)
 }
