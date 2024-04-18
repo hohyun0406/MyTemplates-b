@@ -22,7 +22,7 @@ public class ArticleServiceImpl implements ArticleService {
     @Override
     public Messenger save(ArticleDto articleDto) {
         entityToDto(repository.save(dtoToEntity(articleDto)));
-        return new Messenger();
+        return Messenger.builder().message(repository.findById(articleDto.getId()).isPresent() ? "SUCCESS" : "FAILURE").build();
     }
 
     @Override
@@ -37,30 +37,14 @@ public class ArticleServiceImpl implements ArticleService {
         return new Messenger();
     }
 
-//    @Override
-//    public List<ArticleDto> findArticlesByTitle(String title) {
-//        return repository.findByTitle(title);
-//    }
-//
-//    @Override
-//    public List<ArticleDto> findArticlesByRegisterDate(String registerDate) {
-//        return repository.findByRegisterDate(registerDate);
-//    }
-//
-//    @Override
-//    public Optional<ArticleDto> findArticlesByWriter(String writerId) {
-//        return Optional.of(entityToDto(repository.findByWriterId(writerId)));
-//    }
-//
-//    @Override
-//    public Optional<ArticleDto> findArticlesByBoard(String boardId) {
-//        return Optional.of(entityToDto(repository.findByBoardId(boardId)));
-//    }
-
-
     @Override
     public List<ArticleDto> findAll() {
         return repository.findAll().stream().map(this::entityToDto).collect(Collectors.toList());
+    }
+
+    public List<ArticleDto> findArticlesByBoard(Long id) {
+        return repository.getArticlesByBoardId(id).stream().map(i->entityToDto(i)).collect(Collectors.toList());
+//        return repository.findAll().stream().filter(i->i.getBoard().getId().equals(id)).map((i)->(entityToDto(i))).toList();
     }
 
     @Override
@@ -77,4 +61,6 @@ public class ArticleServiceImpl implements ArticleService {
     public boolean existsById(Long id) {
         return repository.existsById(id);
     }
+
+
 }

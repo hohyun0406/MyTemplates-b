@@ -6,7 +6,7 @@ spring:
   application:
     name: api
   datasource:
-    url: jdbc:mysql://3.34.165.98:3306/roddb?useSSL=false&serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    url: jdbc:mysql://3.34.165.98:3306/roddb?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=Asia/Seoul&characterEncoding=UTF-8
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -15,7 +15,6 @@ spring:
       ddl-auto: update
     properties:
       hibernate:
-
         dialect: org.hibernate.dialect.MySQL8Dialect
         jdbc:
           lob:
@@ -23,7 +22,7 @@ spring:
         '[format_sql]': true
     show-sql: true
     defer-datasource-initialization: true # after ddl-auto, data.sql query apply
-    open-in-view: false
+#    open-in-view: true
 logging:
   level:
     org:

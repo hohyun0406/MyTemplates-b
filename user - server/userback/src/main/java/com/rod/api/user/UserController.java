@@ -29,19 +29,6 @@ public class UserController {
 
 
     //커맨드 : create, update, delete
-//    @PostMapping("")
-//    public ResponseEntity<Messenger> join(@RequestBody Map<?, ?> paramMap){
-//        Map<String, Messenger> map = new HashMap<>();
-//        User newUser = repo.save(User.builder()
-//                .username((String) paramMap.get("username"))
-//                .password((String) paramMap.get("password"))
-//                .name((String) paramMap.get("name"))
-//                .phone((String) paramMap.get("phone"))
-//                .job((String) paramMap.get("job"))
-//                .build());
-//        log.info("DB 에 저장된 User 정보 : {}", newUser);
-//        return ResponseEntity.ok(new Messenger());
-//    }
 
     @PostMapping("/save")
     public ResponseEntity<Messenger> save(@RequestBody UserDto userDto){
@@ -60,19 +47,9 @@ public class UserController {
         log.info("입력받은 아이디 : {} ", id);
         return ResponseEntity.ok(service.deleteById(id));
     }
-//
-//    /delete/2
-//    /delete?id=2
-
-
 
 
 //쿼리 : read only (copy)
-
-//    @GetMapping("/login")
-//    public ResponseEntity<Messenger> login(@RequestBody UserDto userDto){
-//        return ResponseEntity.ok(service.login(userDto));
-//    }
 
 
 //    @SuppressWarnings("unchecked")

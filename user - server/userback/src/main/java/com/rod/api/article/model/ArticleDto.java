@@ -13,8 +13,8 @@ public class ArticleDto {
     private Long id;
     private String title;
     private String content;
-    private Long writerId;
-    private Long boardId;
+    private Long writer;
+    private Long board;
     private String regDate;
     private String modDate;
 }

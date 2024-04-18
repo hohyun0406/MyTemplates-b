@@ -35,9 +35,6 @@ export default function Home() {
     console.log(auth)
       dispatch(login(user))
     };
-  
-
-
     
   useEffect(()=>{
     if(auth.message==='SUCCESS'){
@@ -46,7 +43,7 @@ export default function Home() {
       console.log('서버에서 넘어온 메세지'+parseCookies().message)
       console.log('서버에서 넘어온 토큰'+parseCookies().token)
       alert(auth.token)
-      router.push(`/pages/board/card`)
+      router.push(`/pages/board/list`)
     } else {
       console.log('Login Fail YuY')
     }

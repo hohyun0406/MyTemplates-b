@@ -3,10 +3,8 @@ export interface IArticle{
     title? : string,
     content? : string,
     registerDate? : string,
-    wrtierId? : number,
-    boardId? : number,
+    wrtier? : number,
+    board? : number,
     regDate? : string
     modDate? : string,
-    json?: IArticle,
-    array? : IArticle[]
 }

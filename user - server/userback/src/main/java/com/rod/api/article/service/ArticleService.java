@@ -27,13 +27,14 @@ public interface ArticleService extends CommandService<ArticleDto>, QueryService
                 .build();
     }
 
+
 //    Messenger modify(ArticleDto articleDto);
 //
 //    List<ArticleDto> findArticlesByTitle(String title);
 //    List<ArticleDto> findArticlesByRegisterDate(String registerDate);
 //
 //    Optional<ArticleDto> findArticlesByWriter(String writerId);
-//    Optional<ArticleDto> findArticlesByBoard(String boardId);
+
     
 }
 
