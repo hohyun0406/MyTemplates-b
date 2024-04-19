@@ -3,6 +3,7 @@ package com.rod.api.article.repository;
 import com.rod.api.article.model.Article;
 import com.rod.api.article.model.ArticleDto;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
@@ -27,6 +28,7 @@ public interface ArticleRepository extends JpaRepository<Article,Long> {
 //    String articleDtoMapping = "new com.rod.api.article.model.ArticleDto(" +
 //            "a.id, a.title, a.content, a.writer.id, a.board.id" +
 //            ", a.regDate, a.modDate)";
+//    @Modifying
 //    @Query("SELECT"+ articleDtoMapping +"FROM Article a WHERE a.board.id = :boardId")
 //    public List<ArticleDto> getArticleDtoByBoardId(@Param("boardId") Long boardId);
 

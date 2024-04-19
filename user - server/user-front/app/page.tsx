@@ -5,49 +5,82 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { login } from "./components/user/service/user-service";
-import { getAuth } from "./components/user/service/user-slice";
+import { existsId, login } from "./components/user/service/user-service";
+import { checkExistId, getAuth } from "./components/user/service/user-slice";
 import { IUser } from "./components/user/model/user";
 import { PG } from "./components/common/enums/PG";
 import {parseCookies, destroyCookie, setCookie} from 'nookies'
+import { jwtDecode } from "jwt-decode";
 
 
 export default function Home() {
   const router = useRouter();
   const dispatch = useDispatch();
   const auth = useSelector(getAuth)
+  const checkExistIdmsgjson = useSelector(checkExistId)
 
   const [user, setUser] = useState({} as IUser);
+  const [isWrongId, setIsWrongId] = useState(false)
+  const [isWrongPw, setIsWrongPw] = useState(false)
+  const [isExistId, setIsExistId] = useState(false)
 
   const handleChange = (e: any) => {
+    const ID_CHECK = /^[a-zA-Z]+[a-zA-Z0-9]{4,19}$/g;
+    //영문자 대소문자로 시작하는 5~20자 의 영어 소문자 또는 숫자
+    if(ID_CHECK.test(e.target.value)){
+      setIsWrongId(false)
+      
+    }else{
+      console.log('잘못된 형식의 아이디입니다.')
+      setIsWrongId(true)
+    }
       setUser({
         ...user,
         username : e.target.value})
   }
 
   const handleChangePw = (e: any) => {
+    const PW_CHECK = /^[a-zA-Z]+[a-zA-Z0-9\{\}\[\]\/?.,;:|\)*~`!^\-_+<>@\#$%&\\\=\(\'\"]{7,19}$/g;
+    // 영문자로 시작하는 8~20자의 영문 대/소문자, 숫자, 특수문자 조합
+    if(PW_CHECK.test(e.target.value)){
+      setIsWrongPw(false)
+    }else{
+      console.log('잘못된 형식의 비번입니다.')
+      setIsWrongPw(true)
+    }
     setUser({
       ...user,
       password : e.target.value})
   }
 
   const handleClick = () => {
-    console.log(auth)
-      dispatch(login(user))
+    //여기서 테스트 메서드 사용 후 user.username password 랑 비교해서 메세지 날려도 될듯
+    dispatch(existsId(user.username))
+    // console.log(auth)
+      // dispatch(login(user))
     };
+
     
-  useEffect(()=>{
-    if(auth.message==='SUCCESS'){
-      setCookie({}, 'message', auth.message, { httpOnly: false, path: '/' })
-      setCookie({}, 'token', auth.token, { httpOnly: false, path: '/' })
-      console.log('서버에서 넘어온 메세지'+parseCookies().message)
-      console.log('서버에서 넘어온 토큰'+parseCookies().token)
-      alert(auth.token)
-      router.push(`/pages/board/list`)
-    } else {
-      console.log('Login Fail YuY')
-    }
-  }, [auth])
+    useEffect(()=>{
+      setIsExistId(checkExistIdmsgjson===`SUCCESS`? false: checkExistIdmsgjson===`FAILURE`? true:false)
+
+    },[checkExistIdmsgjson])
+    
+  // useEffect(()=>{
+  //   if(auth.message==='SUCCESS'){
+  //     setCookie({}, 'message', auth.message, { httpOnly: false, path: '/' })
+  //     setCookie({}, 'token', auth.token, { httpOnly: false, path: '/' })
+  //     console.log('서버에서 넘어온 메세지'+parseCookies().message)
+  //     console.log('서버에서 넘어온 토큰'+parseCookies().token)
+  //     alert(auth.token)
+  //     console.log("토큰을 디코드한 내용 : ")
+  //     console.log(jwtDecode<any>(parseCookies().token))
+      
+  //     router.push(`/pages/board/list`)
+  //   } else {
+  //     console.log('Login Fail YuY')
+  //   }
+  // }, [auth])
 
 
 
@@ -75,6 +108,16 @@ export default function Home() {
               required
             />
           </div>
+          {isWrongId && (<pre>
+            <h6 className="text-red-500">
+              잘못된 형식의 아이디입니다.
+            </h6>
+          </pre>)}
+          {isExistId && (<pre>
+            <h6 className="text-red-500">
+              존재하지 않는 아이디입니다
+            </h6>
+          </pre>)}
           <div className="mt-4 flex flex-col justify-between">
             <div className="flex justify-between">
               <label className="block text-gray-700 text-sm font-bold mb-2">
@@ -93,6 +136,11 @@ export default function Home() {
               Forget Password?
             </a>
           </div>
+          {isWrongPw && (<pre>
+            <h6 className="text-red-500">
+              잘못된 형식의 비밀번호 입니다.
+            </h6>
+          </pre>)}
           <div className="mt-8">
             <button onClick={handleClick} className="bg-blue-700 text-white font-bold py-2 px-4 w-full rounded hover:bg-blue-600">
               Login

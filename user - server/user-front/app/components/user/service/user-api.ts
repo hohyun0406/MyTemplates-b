@@ -49,3 +49,11 @@ export const loginAPI = async (user:IUser) => {
         return error
     }
 }
+
+export const existsIdAPI = async (username:string) => {
+    try {const response = await instance.get('/users/exists-id', {params : {username}})
+        return response.data.message
+    } catch (error) {
+        return error
+    }
+}

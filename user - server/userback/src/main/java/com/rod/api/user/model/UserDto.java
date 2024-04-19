@@ -23,5 +23,6 @@ public class UserDto {
     private List<Article> articlesId;
     private String regDate;
     private String modDate;
+    private String token;
 
 }

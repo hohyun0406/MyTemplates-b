@@ -70,5 +70,11 @@ public class UserController {
         return ResponseEntity.ok(service.login(userDto));
     }
 
+    @GetMapping("/exists-id")
+    public ResponseEntity<Messenger> existsId(@RequestParam("username") String username){
+        log.info("username request : {}", username);
+        return ResponseEntity.ok(service.existsByUsername(username));
+    }
+
 
 }
