@@ -40,7 +40,7 @@ export const findArticleByIdAPI = async (id : number) => {
 
 export const saveNewArticleAPI = async (all : any) => {
     try {
-        const response = await instance.post(`articles/save`,all)
+        const response = await instance.post(`articles/save-new-article`,all)
         return response.data.message
     } catch (error) {
         console.log(error)

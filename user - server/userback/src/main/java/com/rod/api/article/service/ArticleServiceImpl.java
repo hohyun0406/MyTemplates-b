@@ -21,8 +21,11 @@ public class ArticleServiceImpl implements ArticleService {
 
     @Override
     public Messenger save(ArticleDto articleDto) {
-        entityToDto(repository.save(dtoToEntity(articleDto)));
-        return Messenger.builder().message(repository.findById(articleDto.getId()).isPresent() ? "SUCCESS" : "FAILURE").build();
+        Article savedArticle = repository.save(dtoToEntity(articleDto));
+
+        return Messenger.builder()
+                .message(savedArticle.getId() != null ? "SUCCESS":"FAILURE")
+                .build();
     }
 
     @Override

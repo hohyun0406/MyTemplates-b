@@ -28,7 +28,7 @@ export const findArticlesByBoardId: any = createAsyncThunk(
 )
 
 export const saveNewArticle: any = createAsyncThunk(
-  "articles/saveNewArticle",
+  "articles/save-new-article",
   async (all : any) => {
     const data : any = await saveNewArticleAPI(all)
     return data

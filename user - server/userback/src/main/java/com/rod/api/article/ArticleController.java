@@ -30,7 +30,7 @@ public class ArticleController {
 
     //커맨드 : create, update, delete
 
-    @PostMapping("/save")
+    @PostMapping("/save-new-article")
     public ResponseEntity<Messenger> save(@RequestBody ArticleDto articleDto){
         log.info("받은 정보 : {}" , articleDto);
         return ResponseEntity.ok(service.save(articleDto));
