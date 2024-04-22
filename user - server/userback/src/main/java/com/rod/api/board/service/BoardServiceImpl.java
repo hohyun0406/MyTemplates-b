@@ -1,15 +1,12 @@
 package com.rod.api.board.service;
 
 
-import com.rod.api.board.model.Board;
 import com.rod.api.board.model.BoardDto;
 import com.rod.api.board.repository.BoardRepository;
 import com.rod.api.common.component.Messenger;
-import com.rod.api.common.component.PageRequestVo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;

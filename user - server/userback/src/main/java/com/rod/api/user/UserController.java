@@ -67,7 +67,8 @@ public class UserController {
     @PostMapping("/login")
     public ResponseEntity<Messenger> login(@RequestBody UserDto userDto) {
         log.info("login request : {}", userDto);
-        return ResponseEntity.ok(service.login(userDto));
+        Messenger messenger = service.login(userDto);
+        return ResponseEntity.ok(messenger);
     }
 
     @GetMapping("/exists-id")

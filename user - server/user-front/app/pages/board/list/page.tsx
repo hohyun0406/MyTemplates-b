@@ -10,14 +10,15 @@ import { useDispatch } from "react-redux"
 
 export default function BoardCards () {
 
-    const dispatch = useDispatch()
-    const boardList = useSelector(getAllBoards)
-    useEffect(()=>{
-        dispatch(findAllBoards(1))
-    },[])
+    // const dispatch = useDispatch()
+    // const boardList = useSelector(getAllBoards)
+    // useEffect(()=>{
+    //     dispatch(findAllBoards(1))
+    // },[])
     
     return(<>
-    <div>
+    <h1>보드</h1>
+    {/* <div>
     <div className="flex flex-row gap-3 w-screen items-center">
           {boardList.map((board: any) => (
             <CardButton
@@ -27,7 +28,7 @@ export default function BoardCards () {
             />
           ))}
         </div>
-    </div>
+    </div> */}
     
 
     </>)

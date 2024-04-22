@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { IArticle } from '../model/article';
+import  IArticle  from '../model/article';
 import { findAllArticles, findArticleById, findArticlesByBoardId, saveNewArticle } from './article-service';
 
 const articleThunks = [findAllArticles]

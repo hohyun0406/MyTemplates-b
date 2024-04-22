@@ -1,10 +1,11 @@
-package com.rod.api.common.component;
+package com.rod.api.common.component.security;
 
 import com.rod.api.user.model.UserDto;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
 
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.log4j.Log4j2;
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
@@ -49,5 +50,28 @@ public class JwtProvider {
     }
 
 
+    public String extractTokenFromHeader(HttpServletRequest request) {
+        String bearerToken = request.getHeader("Authrization");
+
+        if(bearerToken != null && bearerToken.startsWith("Bearer")){
+            return bearerToken.substring(7);
+        }
+
+        return null;
+    }
+
+    public String getPayload(String accessToken) {
+        String[] chunks = accessToken.split("\\.");
+        Base64.Decoder decoder = Base64.getUrlDecoder();
+
+        String header = new String(decoder.decode(chunks[0]));
+        String payload = new String(decoder.decode(chunks[1]));
+
+        log.info("Access Token Header : "+header);
+        log.info("Access Token payload : "+payload);
+
+//        return new StringBuilder().append(header).append(payload).toString();
+        return payload;
+    }
 }
 

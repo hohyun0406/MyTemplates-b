@@ -1,9 +1,8 @@
 package com.rod.api.user.service;
 
 
-import com.rod.api.common.component.JwtProvider;
+import com.rod.api.common.component.security.JwtProvider;
 import com.rod.api.common.component.Messenger;
-import com.rod.api.common.component.PageRequestVo;
 import com.rod.api.user.model.User;
 import com.rod.api.user.model.UserDto;
 import com.rod.api.user.repository.UserRepository;
@@ -12,7 +11,6 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.Base64;
 import java.util.List;
 import java.util.Optional;
@@ -75,27 +73,22 @@ public class UserServiceImpl implements UserService {
     @Transactional //이거 어노테이션 어떤거?
     public Messenger login(UserDto userDto) {
         User user = repository.findByUsername(userDto.getUsername()).get();
-        String token = jwtProvider.createToken(entityToDto(user));
+        String accessToken = jwtProvider.createToken(entityToDto(user));
         boolean flag = user.getPassword().equals(userDto.getPassword());
 
 //        boolean flag = repository.findByUsername(userDto.getUsername()).get().getPassword().equals(userDto.getPassword());
 //        String token = jwtProvider.createToken(userDto);
 
         //토큰을 각 세션(Header, Payload, Signature로 분할)
-        String[] chunks = token.split("\\.");
-        Base64.Decoder decoder = Base64.getUrlDecoder();
-
-        String header = new String(decoder.decode(chunks[0]));
-        String payload = new String(decoder.decode(chunks[1]));
-
-        log.info("Token Header : "+header);
-        log.info("Token payload : "+payload);
+        jwtProvider.getPayload(accessToken);
 
         return Messenger.builder()
                 .message(flag ? "SUCCESS" : "FAILURE")
-                .token(flag ? token : "None")
+                .accessToken(flag ? accessToken : "None")
                 .build();
     }
+
+
 
     @Override
     public Optional<User> findUserByUsername(String username) {
