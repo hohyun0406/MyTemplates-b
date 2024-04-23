@@ -12,6 +12,8 @@ import java.util.List;
 @Component
 @Data
 @Builder
+@Getter
+@Setter
 public class UserDto {
     private Long id;
     private String username;

@@ -64,18 +64,9 @@ public class UserController {
         return ResponseEntity.ok(service.findById(id));
     }
 
-    @PostMapping("/login")
-    public ResponseEntity<Messenger> login(@RequestBody UserDto userDto) {
-        log.info("login request : {}", userDto);
-        Messenger messenger = service.login(userDto);
-        return ResponseEntity.ok(messenger);
+    @GetMapping("/logout")
+    public ResponseEntity<Optional<UserDto>> logout(){
+        return ResponseEntity.ok(null);
     }
-
-    @GetMapping("/exists-id")
-    public ResponseEntity<Messenger> existsId(@RequestParam("username") String username){
-        log.info("username request : {}", username);
-        return ResponseEntity.ok(service.existsByUsername(username));
-    }
-
 
 }

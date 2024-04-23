@@ -6,6 +6,7 @@ import com.rod.api.common.service.CommandService;
 import com.rod.api.common.service.QueryService;
 import com.rod.api.user.model.User;
 import com.rod.api.user.model.UserDto;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -33,7 +34,10 @@ public interface UserService extends CommandService<UserDto>, QueryService<UserD
                 .job(user.getJob())
                 .build();
     }
-//    Messenger modify(UserDto user);
+
+    Messenger login(UserDto userDto);
+
+    //    Messenger modify(UserDto user);
 //    List<UserDto> findUsersByName(String name);
 //    List<UserDto> findUsersByJob(String job);
 Optional<User> findUserByUsername(String username);

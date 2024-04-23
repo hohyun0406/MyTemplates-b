@@ -11,7 +11,6 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Base64;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -70,7 +69,9 @@ public class UserServiceImpl implements UserService {
         return repository.existsById(id);
     }
 
-    @Transactional //이거 어노테이션 어떤거?
+
+    @Override
+    @Transactional//이거 어노테이션 어떤거?
     public Messenger login(UserDto userDto) {
         User user = repository.findByUsername(userDto.getUsername()).get();
         String accessToken = jwtProvider.createToken(entityToDto(user));
@@ -80,7 +81,7 @@ public class UserServiceImpl implements UserService {
 //        String token = jwtProvider.createToken(userDto);
 
         //토큰을 각 세션(Header, Payload, Signature로 분할)
-        jwtProvider.getPayload(accessToken);
+        jwtProvider.printPayload(accessToken);
 
         return Messenger.builder()
                 .message(flag ? "SUCCESS" : "FAILURE")
@@ -104,4 +105,7 @@ public class UserServiceImpl implements UserService {
             return Messenger.builder().message("FAILURE").build();
         }
     }
+
+
+
 }

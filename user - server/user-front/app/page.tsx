@@ -80,7 +80,7 @@ export default function Home() {
               console.log("서버에서 넘어온 토큰 2 " + parseCookies().accessToken);
               console.log("토큰을 디코드한 내용 : ");
               console.log(jwtDecode<any>(parseCookies().accessToken));
-              // router.push('/pages/board/list')
+              router.push('/pages/board/list')
             })
             .catch((err: any) => {
               console.log("로그인 실패");

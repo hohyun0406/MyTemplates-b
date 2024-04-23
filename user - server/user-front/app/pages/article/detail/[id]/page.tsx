@@ -1,6 +1,6 @@
 'use client'
 
-import { IArticle } from "@/app/components/article/model/article"
+import IArticle from "@/app/components/article/model/article"
 import { useEffect } from "react"
 import { useSelector } from "react-redux"
 import { useDispatch } from "react-redux"

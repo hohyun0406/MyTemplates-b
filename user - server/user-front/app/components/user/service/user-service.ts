@@ -40,6 +40,6 @@ export const existsId:any = createAsyncThunk(
 )
 
 export const logout : any = createAsyncThunk(
-    'users/loggout',
+    'users/logout',
     async () => await logoutAPI()
 )
