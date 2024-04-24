@@ -89,8 +89,6 @@ public class UserServiceImpl implements UserService {
                 .build();
     }
 
-
-
     @Override
     public Optional<User> findUserByUsername(String username) {
         return repository.findByUsername(username);
@@ -106,6 +104,14 @@ public class UserServiceImpl implements UserService {
         }
     }
 
+    @Transactional
+    @Override
+    public Boolean logout(String accessToken) {
+        Long userId = 0L;
+        String deletedToken = "";
+        repository.modifyTokenById(userId, deletedToken);
+        return repository.findById(userId).get().getToken().equals("");
+    }
 
 
 }

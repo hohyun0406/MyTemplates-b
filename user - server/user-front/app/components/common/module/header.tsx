@@ -20,7 +20,7 @@ function Header() {
       console.log("쿠키가 있어서 보임");
       setShowProfile(true);
     } else {
-      console.log("쿠키가 있어서 안보임");
+      console.log("쿠키가 없어서 안보임");
       setShowProfile(false);
     }
   }, [parseCookies().accessToken]);

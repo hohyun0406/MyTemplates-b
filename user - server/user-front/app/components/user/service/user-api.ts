@@ -62,7 +62,7 @@ export const existsIdAPI = async (username:string) => {
 export const logoutAPI = async () => {
     try {const response = await instance().get('/users/logout', {params : {}})
         console.log('logoutAPI 결과: '+ response.data)
-        return response.data.message
+        return response.data
     } catch (error) {
         return error
     }

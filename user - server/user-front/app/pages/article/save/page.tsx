@@ -1,6 +1,6 @@
 "use client";
 
-import { IArticle } from "@/app/components/article/model/article";
+import IArticle from "@/app/components/article/model/article";
 import { saveNewArticle } from "@/app/components/article/service/article-service";
 import { saveNewArticleResult } from "@/app/components/article/service/article-slice";
 import { PG } from "@/app/components/common/enums/PG";
@@ -75,6 +75,7 @@ export default function WriteArticlePage() {
           <option value="1">Review</option>
           <option value="2">QnA</option>
         </select>
+
       </form>
       <div className="editor mx-auto w-10/12 flex flex-col text-gray-800 border border-gray-300 p-4 shadow-lg max-w-2xl">
         <input

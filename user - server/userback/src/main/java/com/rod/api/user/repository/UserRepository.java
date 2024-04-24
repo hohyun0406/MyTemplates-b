@@ -18,7 +18,9 @@ public interface UserRepository extends JpaRepository<User,Long> {
     @Query("select u from users u where u.username =:username")
     public Optional<User> findByUsername(@Param("username") String username);
 
-//    @Modifying
-//    @Query("update users set:id")
-//    public void modifyTokenById(@Param("id") Long id);
+    @Modifying
+    @Query("update users set token = :token where id = :id")
+    public void modifyTokenById(@Param("id") Long id, @Param("token") String token);
+
+
 }

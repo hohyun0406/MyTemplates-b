@@ -65,8 +65,10 @@ public class UserController {
     }
 
     @GetMapping("/logout")
-    public ResponseEntity<Optional<UserDto>> logout(){
-        return ResponseEntity.ok(null);
+    public ResponseEntity<Boolean> logout(@RequestHeader("Authorization") String accessToken){
+        log.info("1- logout request : {}", accessToken);
+        Boolean flag = service.logout(accessToken);
+        return ResponseEntity.ok(flag);
     }
 
 }
