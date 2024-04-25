@@ -1,6 +1,7 @@
 package com.rod.api.user.repository;
 
 import com.rod.api.article.model.Article;
+import com.rod.api.board.model.Board;
 import com.rod.api.user.model.User;
 import com.rod.api.user.model.UserDto;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -22,5 +23,6 @@ public interface UserRepository extends JpaRepository<User,Long> {
     @Query("update users set token = :token where id = :id")
     public void modifyTokenById(@Param("id") Long id, @Param("token") String token);
 
+    List<User> findAllByOrderByIdDesc();
 
 }

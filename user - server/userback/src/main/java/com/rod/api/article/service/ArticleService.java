@@ -40,7 +40,7 @@ public interface ArticleService extends CommandService<ArticleDto>, QueryService
 
         // writer 정보가 있을 때만 설정
         if (article.getWriter() != null) {
-            builder.writer(article.getWriter().getId());
+            builder.writer(article.getWriter().getId()); //여기는
         }
 
         // board 정보가 있을 때만 설정

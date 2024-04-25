@@ -11,7 +11,7 @@ import { useForm } from "react-hook-form";
 import { jwtDecode } from "jwt-decode";
 import { parseCookies } from "nookies";
 
-export default function WriteArticlePage() {
+export default function UpdateArticlePage(id:any) {
   const router = useRouter();
   const dispatch = useDispatch();
   
@@ -163,50 +163,3 @@ export default function WriteArticlePage() {
     </>
   );
 }
-
-// const dispatch = useDispatch();
-// const result = useSelector(saveNewArticleResult);
-// const router = useRouter();
-// const [newArticle, setNewArticle] = useState({} as IArticle);
-// const handleFirstIconClick = () => {
-//   console.log("첫 번째 아이콘이 클릭되었습니다!");
-// };
-// const handleSecondIconClick = () => {
-//   console.log("두 번째 아이콘이 클릭되었습니다!");
-// };
-// const handleThirdIconClick = () => {
-//   console.log("세 번째 아이콘이 클릭되었습니다!");
-// };
-// const handleCancelButtonClick = () => {
-//   console.log("Cancel 버튼이 클릭되었습니다!");
-// };
-// const handlePostButtonClick = () => {
-//   console.log("Post 버튼이 클릭되었습니다!");
-//   if (newArticle.title && newArticle.content && newArticle.board) {
-//     dispatch(saveNewArticle(newArticle));
-//   } else {
-//     alert("누락된 값이 있습니다.(보드선택, 제목, 내용)");
-//   }
-// };
-
-// const handleTitleChange = (e: any) => {
-//   setNewArticle({ ...newArticle, title: e.target.value });
-// };
-// const handleContentChange = (e: any) => {
-//   setNewArticle({ ...newArticle, content: e.target.value });
-// };
-// const handleSelectChange = (e: any) => {
-//   setNewArticle({ ...newArticle, board: e.target.value });
-// };
-
-// useEffect(() => {
-//   if (result === `SUCCESS`) {
-//     alert(result);
-//     router.push(`${PG.ARTICLE}/list/${newArticle.board}`);
-//   } else if (result === `FAILURE`) {
-//     console.log(result);
-//     console.log(`You Got Fail Message`);
-//   } else {
-//     console.log(result);
-//   }
-// }, [result]);

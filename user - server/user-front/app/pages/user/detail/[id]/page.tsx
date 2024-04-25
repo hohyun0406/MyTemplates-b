@@ -145,25 +145,3 @@ useEffect(()=>{
     </>
     </>)
 }
-{/* <div className="text-center">
-<h2>{params.id}상세 페이지</h2>
-<span>id : </span>{CustomTypography(user.id, "1rem")}
-<span>username : </span>{CustomTypography(user.username, "1rem")}
-<span>password : </span>{CustomTypography(user.password, "1rem")}<Input></Input><br />
-<span>name : </span>{CustomTypography(user.name, "1rem")}
-<span>phone : </span>{CustomTypography(user.phone, "1rem")}
-<span>address : </span>{CustomTypography(user.address, "1rem")}
-<span>job : </span>{CustomTypography(user.job, "1rem")}
-<Button onClick={handleModify}>수정</Button>
-<Button onClick={handleDelete}>삭제</Button>
-</div> */}
-
-// {
-//   ...user,
-// username: modified.username || user.username,
-// password: modified.password || user.password,
-// name: modified.name || user.name,
-// phone: modified.phone || user.phone,
-// address: modified.address || user.address,
-// job: modified.job || user.job,
-// }

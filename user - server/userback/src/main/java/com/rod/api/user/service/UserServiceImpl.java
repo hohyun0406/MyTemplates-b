@@ -112,6 +112,4 @@ public class UserServiceImpl implements UserService {
         repository.modifyTokenById(userId, deletedToken);
         return repository.findById(userId).get().getToken().equals("");
     }
-
-
 }

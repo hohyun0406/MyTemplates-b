@@ -1,5 +1,6 @@
 package com.rod.api.board.repository;
 
+import com.rod.api.article.model.Article;
 import com.rod.api.board.model.Board;
 import com.rod.api.board.model.BoardDto;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -16,4 +17,6 @@ public interface BoardRepository extends JpaRepository<Board,Long> {
 //    Optional<Board> findByBoardType(String boardType);
 //
 //    List<BoardDto> findByRegisterDate();
+
+    List<Board> findAllByOrderByIdDesc();
 }

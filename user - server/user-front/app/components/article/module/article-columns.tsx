@@ -57,5 +57,13 @@ export default function ArticleColumns() : GridColDef[]{
             headerName : '보드아이디',
             renderCell: ({row} : CellType) => <Typography textAlign="center" sx={{fontSize:"1.5rem"}}>{row.boardId}</Typography>
         },
+        {
+            flex: 0.04,
+            minWidth: 30,
+            sortable: false,
+            field: 'delete',
+            headerName: '삭제',
+            renderCell: ({row}:CellType) => <Link href={""}>  {<Typography textAlign="center" sx={{fontSize:"1.5rem"}}> 삭제 </Typography>}</Link>
+            },
     ]
 }

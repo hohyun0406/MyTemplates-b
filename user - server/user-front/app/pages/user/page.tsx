@@ -1,6 +1,5 @@
 'use client'
 
-import { fetchAllUsers } from "@/app/components/user/service/user-service"
 import { getAllUsers } from "@/app/components/user/service/user-slice"
 import { NextPage } from "next"
 import { useEffect } from "react"
