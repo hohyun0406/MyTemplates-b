@@ -16,7 +16,7 @@ import java.util.Map;
 @Repository
 public interface ArticleRepository extends JpaRepository<Article,Long> {
     //JPQL Default
-    @Query("select a from articles a where a.board.id =:boardId")
+    @Query("select a from articles a where a.board.id =:boardId ORDER BY a.id DESC")
     public List<Article> getArticlesByBoardId(@Param("boardId") Long boardId);
 
 
@@ -33,6 +33,6 @@ public interface ArticleRepository extends JpaRepository<Article,Long> {
 //    @Query("SELECT"+ articleDtoMapping +"FROM Article a WHERE a.board.id = :boardId")
 //    public List<ArticleDto> getArticleDtoByBoardId(@Param("boardId") Long boardId);
 
-    List<Article> findAllByOrderByIdDesc();
+//    List<Article> findAllByOrderByIdDesc(Long boardId);
 
 }

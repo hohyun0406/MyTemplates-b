@@ -18,12 +18,10 @@ public interface ArticleService extends CommandService<ArticleDto>, QueryService
                 .id(dto.getId())
                 .title(dto.getTitle())
                 .content(dto.getContent());
-
         // writer 정보가 있을 때만 설정
         if (dto.getWriter() != null) {
             builder.writer(User.builder().id(dto.getWriter()).build());
         }
-
         // board 정보가 있을 때만 설정
         if (dto.getBoard() != null) {
             builder.board(Board.builder().id(dto.getBoard()).build());
@@ -34,15 +32,13 @@ public interface ArticleService extends CommandService<ArticleDto>, QueryService
 
     default ArticleDto entityToDto(Article article){
         ArticleDto.ArticleDtoBuilder builder = ArticleDto.builder()
-                .id(article.getId())
+                .id(article.getId()) //이것도 자동증가 되는 시점에 생기므로 레포지토리에서 가져와야 함
                 .title(article.getTitle())
                 .content(article.getContent());
-
         // writer 정보가 있을 때만 설정
         if (article.getWriter() != null) {
-            builder.writer(article.getWriter().getId()); //여기는
+            builder.writer(article.getWriter().getId()); //여기는 수정 (다른 방향에서 가져와야함)
         }
-
         // board 정보가 있을 때만 설정
         if (article.getBoard() != null) {
             builder.board(article.getBoard().getId());

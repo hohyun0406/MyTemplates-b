@@ -29,8 +29,12 @@ export default function WriteArticlePage() {
     console.log(JSON.stringify(jwtDecode<any>(parseCookies().accessToken).userId))
     dispatch(saveNewArticle(data))
     .then((res:any)=>{
+      console.log(res)
+      console.log(JSON.stringify(res))
+      console.log(res.payload)
+      console.log(JSON.stringify(res.payload))
       alert('게시글 작성 완료')
-      // router.push(`/article/list/${board}`)
+      // router.push(`/article/list/${res.payload.board}`)
 
     })
     .catch(()=>{});

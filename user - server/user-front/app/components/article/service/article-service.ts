@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { findAllArticlesAPI, findArticleByIdAPI, findArticlesByBoardAPI, saveNewArticleAPI } from "./article-api";
+import { deleteByIdAPI, findAllArticlesAPI, findArticleByIdAPI, findArticlesByBoardAPI, saveNewArticleAPI } from "./article-api";
 
 
 export const findAllArticles: any = createAsyncThunk(
@@ -13,7 +13,7 @@ export const findAllArticles: any = createAsyncThunk(
 )
 export const findArticleById : any = createAsyncThunk(
   'articles/findArticleById',
-  async (id:number) => await findArticleByIdAPI(id)
+  async (id:number) => await findArticleByIdAPI(id) //이거 중괄호 의미?
 )
 
 export const findArticlesByBoardId: any = createAsyncThunk(
@@ -30,4 +30,9 @@ export const saveNewArticle: any = createAsyncThunk(
     const data : any = await saveNewArticleAPI(all)
     return data
   }
+)
+
+export const deleteById:any = createAsyncThunk(
+  "articles/delete",
+  async (id : number) => await deleteByIdAPI(id)
 )

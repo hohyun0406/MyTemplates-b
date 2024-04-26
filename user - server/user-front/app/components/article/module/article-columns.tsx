@@ -2,12 +2,15 @@ import { Link, Typography } from "@mui/material";
 import { ArticleColumn } from "../model/article-column";
 import { GridColDef } from "@mui/x-data-grid";
 import { PG } from "../../common/enums/PG";
+import { useDispatch } from "react-redux";
+import { deleteById } from "../service/article-service";
 
 interface CellType{
     row : ArticleColumn
 }
 
 export default function ArticleColumns() : GridColDef[]{
+    const dispatch = useDispatch()
     return [
         {
             flex: 0.04,
@@ -63,7 +66,20 @@ export default function ArticleColumns() : GridColDef[]{
             sortable: false,
             field: 'delete',
             headerName: '삭제',
-            renderCell: ({row}:CellType) => <Link href={""}>  {<Typography textAlign="center" sx={{fontSize:"1.5rem"}}> 삭제 </Typography>}</Link>
+            renderCell: ({row}:CellType) => 
+            <span style={{ cursor: "pointer" , textDecoration: "underline"}}
+            className="btn underline-offset-4 
+            focus:outline-none focus:ring focus:ring-violet-300
+            overflow-hidden relative w-full h-full font-bold -- before:block before:absolute before:h-full before:w-1/2 before:rounded-full
+            before:bg-pink-400 before:top-0 before:left-1/4 before:transition-transform before:opacity-0 before:hover:opacity-100 hover:text-200 hover:before:animate-ping transition-all duration-300"
+                    onClick={() => {
+                        confirm("article을 삭제합니다.")
+                        console.log("delete article id : {}", row.id)
+                        dispatch(deleteById(row.id))
+                        location.reload(); //새로고침
+                    }
+                    }> Delete</span>
+            
             },
     ]
 }

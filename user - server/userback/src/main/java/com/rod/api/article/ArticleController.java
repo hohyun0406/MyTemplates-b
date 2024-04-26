@@ -32,7 +32,6 @@ public class ArticleController {
         return ResponseEntity.ok(service.save(articleDto));
     }
 
-
     //쿼리 : read only (copy)
     @SuppressWarnings("unchecked")
     @GetMapping("/list")

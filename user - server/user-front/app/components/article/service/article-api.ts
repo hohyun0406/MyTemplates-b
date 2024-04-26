@@ -47,3 +47,12 @@ export const saveNewArticleAPI = async (all : any) => {
         return error
     }
 }
+
+export const deleteByIdAPI = async (id : number) => {
+    try{const response = await instance().get('/users/delete', {params : {id}})
+        return response.data.message
+    }
+     catch (error) {
+        return error
+    }
+}
