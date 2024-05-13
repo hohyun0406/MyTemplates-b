@@ -6,10 +6,10 @@ class TitanicModel:
     context: str
     fname: str
     train: object
-    test : object
+    test: object
     id: str
     label: str
-
+    
     @property
     def context(self) -> str: return self._context
 
@@ -26,24 +26,22 @@ class TitanicModel:
     def train(self) -> object: return self._train
 
     @train.setter
-    def train(self, train):self._train = train
+    def train(self, train): self._train = train
 
     @property
-    def test(self) -> object:return self._test
+    def test(self) -> object: return self._test
 
     @test.setter
-    def test(self, test):self._test = test
+    def test(self, test): self._test = test
 
     @property
-    def id(self) -> str:return self._id
+    def id(self) -> str: return self._id
 
     @id.setter
-    def id(self, id):self._id = id
-    
+    def id(self, id): self._id = id
+
     @property
-    def label(self) -> str:
-        return self._label
+    def label(self) -> str: return self._label
 
     @label.setter
-    def label(self, label):
-        self._label = label
+    def label(self, label): self._label = label

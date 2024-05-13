@@ -1,7 +1,11 @@
 from fastapi import APIRouter
 from pydantic import BaseModel
 
+from app.api.titanic.service.titanic_service import TitanicService
+
+
 router = APIRouter()
+service = TitanicService()
 
 class Request(BaseModel):
     question: str
@@ -11,6 +15,12 @@ class Response(BaseModel):
 
 @router.post("/titanic")
 async def titanic(req:Request):
-    print('titanic 딕셔너리 내용')
+    print('타이타닉 딕셔너리 내용')
+    hello = 'C:\\Users\\bitcamp\\IdeaProjects\\rod\\chat-server\\chat-back\\app\\api\\titanic\\data\\hello.txt'
+    f = open(hello, "r", encoding="utf-8")
+    data = f.read()
+    print(data)
+    f.close()
+    service.process()
     print(req)
-    return {"answer":"생존자는 100명이야."}
+    return {"answer": "생존자는 100명이야."}

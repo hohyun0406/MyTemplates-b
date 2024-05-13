@@ -12,11 +12,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
-<<<<<<< HEAD
       ddl-auto: create
-=======
-      ddl-auto: update
->>>>>>> 794b7870939c364c52a333f1ac5d91712c8641c0
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL8Dialect
