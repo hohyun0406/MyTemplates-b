@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+from icecream import ic
 from app.api.titanic.model.titanic_model import TitanicModel
 import pandas as pd
 
@@ -10,25 +11,29 @@ class TitanicService:
     def process(self):
         print(f'프로세스 시작')
         this = self.model
+        feature = ['PassengerId','Survived','Pclass','Name','Sex','Age','SibSp','Parch','Ticket','Fare','Cabin','Embarked']
+
         this.train_model = self.new_model('train.csv')
         this.test_model = self.new_model('test.csv')
-        # self.df_info(this)
+        self.df_info(this)
         print(f'트레인 컬럼 : {this.train_model.columns}')
         print(f'테스트 컬럼 : {this.test_model.columns}')
-        this.id = this.test['PassengerId']
+        # this.id = this.test['PassengerId']
 
+        this = self.name_nominal(this)
         #드랍 feature 할 곳
-        this = self.drop_feature(this, 'Name', 'SlbSp', 'Parch', 'Cabin', 'Ticket')
+        this = self.drop_feature(this, 'Name', 'SibSp', 'Parch', 'Ticket', 'Cabin')
+        this = self.pclass_ordinal(this)
+        this = self.sex_nominal(this)
+        this = self.age_ratio(this)
+        this = self.fare_ratio(this)
+        this = self.embarked_nominal(this)
+
         print(f'트레인 컬럼 : {this.train_model.columns}')
         print(f'테스트 컬럼 : {this.test_model.columns}')
-        this = self.create_train(this)
-
-
-    def new_model(self, payload) -> object:
-        this = self.model
-        this.context = './app/api/titanic/data/'
-        this.fname = payload
-        return pd.read_csv(this.context + this.fname)
+        self.df_info(this)
+        
+        # this = self.create_train(this)
     
     @staticmethod
     def create_train(this) -> str:
@@ -39,19 +44,36 @@ class TitanicService:
         return this.train['Survived']
     
     @staticmethod
-    def drop_feature(this, *feature) -> object:
-        # for i in feature:
-        #     this.train = this.train.drop([i], axis=1)
-        #     this.train = this.test.drop(i, axis=1)
+    def df_info(this):
+        [print(f'{i}') for i in [this.train_model, this.test_model]]
 
-        # for i in [this.train, this.test]:
-        #     for j in feature:
-        #         i.drop(j, axis=1, inplace=True)
-        # [i.drop(j, axis=1, inplace=True) for j in feature for i in [this.train, this.test]]
-        [(i.drop(j, axis=1, inplace=True)) for j in feature for i in [this.train, this.test] if j in i.columns]
-
+    @staticmethod
+    def pclass_ordinal(this) -> object:
         return this
     
     @staticmethod
-    def df_info(this):
-        [print(i.head()) for i in [this.train, this.test]]
+    def name_nominal(this) -> object:
+        return this.train_model['Name']
+    
+    @staticmethod
+    def extract_title_from_name(this) -> object:
+        combine = [this.train, this.test]
+        for i in combine:
+            i['Title'] = i['Name'].str.extract('([A-Za-z]+)\.')
+        return this
+
+    @staticmethod
+    def sex_nominal(this) -> object:
+        return this.train_model['Sex']
+
+    @staticmethod
+    def age_ratio(this) -> object:
+        return this.train_model['Age']
+
+    @staticmethod
+    def fare_ratio(this) -> object:
+        return this.train_model['Fare']
+
+    @staticmethod
+    def embarked_nominal(this) -> object:
+        return this.train_model['Embarked']
