@@ -1,79 +1,39 @@
 from dataclasses import dataclass
-from icecream import ic
-from app.api.titanic.model.titanic_model import TitanicModel
 import pandas as pd
+from icecream import ic
+
+
+from app.api.titanic.model.titanic_model import TitanicModel
 
 
 class TitanicService:
 
-    model = TitanicModel()
+    def __init__(self) -> None:
+        self.model = TitanicModel()
 
-    def process(self):
-        print(f'프로세스 시작')
+    def preprocess(self):
+        ic(f'전처리 시작')
+        self.model.preprocess('train.csv', 'test.csv')
+
+
+    def modeling(self):
+        ic(f'모델링 시작')
         this = self.model
-        feature = ['PassengerId','Survived','Pclass','Name','Sex','Age','SibSp','Parch','Ticket','Fare','Cabin','Embarked']
 
-        this.train_model = self.new_model('train.csv')
-        this.test_model = self.new_model('test.csv')
-        self.df_info(this)
-        print(f'트레인 컬럼 : {this.train_model.columns}')
-        print(f'테스트 컬럼 : {this.test_model.columns}')
-        # this.id = this.test['PassengerId']
+    def learning(self):
+        ic(f'학습 시작')
+        ic(f'결정트리를 활용한 검증 정확도: ')
+        ic(f'랜덤프레스트를 활용한 검증 정확도: ')
+        ic(f'나이브베이즈를 활용한 검증 정확도: ')
+        ic(f'KNN를 활용한 검증 정확도: ')
+        ic(f'SVM를 활용한 검증 정확도: ')
+        this = self.model
 
-        this = self.name_nominal(this)
-        #드랍 feature 할 곳
-        this = self.drop_feature(this, 'Name', 'SibSp', 'Parch', 'Ticket', 'Cabin')
-        this = self.pclass_ordinal(this)
-        this = self.sex_nominal(this)
-        this = self.age_ratio(this)
-        this = self.fare_ratio(this)
-        this = self.embarked_nominal(this)
 
-        print(f'트레인 컬럼 : {this.train_model.columns}')
-        print(f'테스트 컬럼 : {this.test_model.columns}')
-        self.df_info(this)
-        
-        # this = self.create_train(this)
-    
-    @staticmethod
-    def create_train(this) -> str:
-        return this.train.drop('Survived',axis=1) #axis = 0 : 행(가로), axis = 1 : 열(세로:axis=축)
-    
-    @staticmethod
-    def create_label(this) -> str:
-        return this.train['Survived']
-    
-    @staticmethod
-    def df_info(this):
-        [print(f'{i}') for i in [this.train_model, this.test_model]]
+    def postprocessing(self):
+        ic(f'후처리 시작')
+        this = self.model
 
-    @staticmethod
-    def pclass_ordinal(this) -> object:
-        return this
-    
-    @staticmethod
-    def name_nominal(this) -> object:
-        return this.train_model['Name']
-    
-    @staticmethod
-    def extract_title_from_name(this) -> object:
-        combine = [this.train, this.test]
-        for i in combine:
-            i['Title'] = i['Name'].str.extract('([A-Za-z]+)\.')
-        return this
-
-    @staticmethod
-    def sex_nominal(this) -> object:
-        return this.train_model['Sex']
-
-    @staticmethod
-    def age_ratio(this) -> object:
-        return this.train_model['Age']
-
-    @staticmethod
-    def fare_ratio(this) -> object:
-        return this.train_model['Fare']
-
-    @staticmethod
-    def embarked_nominal(this) -> object:
-        return this.train_model['Embarked']
+    def submit(self):
+        ic(f'제출 시작')
+        this = self.model

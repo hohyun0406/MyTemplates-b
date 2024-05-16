@@ -1,30 +1,29 @@
 import pandas as pd
 import numpy as np
-from app.api.context.data_sets import DataSets
+from app.api.context.datasets import DataSets
 import icecream as ic
+
+CONTEXT = 'C:\\Users\\bitcamp\\IdeaProjects\\rod\\chat-server\\chat-back\\app\\api\\context\\'
 
 class Models:
     def __init__(self) -> None:
         self.ds = DataSets()
-        this = self.ds
-        this.dname = './data'
-        this.sname = './save'
+        self.ds.dname = f'{CONTEXT}data/'
+        self.ds.sname = f'{CONTEXT}save/'
 
-    def new_model(self, fname) -> object:
-        this = self.ds
+    def new_dataframe_with_index(self, fname: pd.DataFrame) -> pd.DataFrame:
         # index_col=0 해야 기존 index 값이 유지된다
-        # 0은 컬럼명 중에서 첫번째를 의미한다(배열구조)
-        # pd.read_csv(f'경로/파일명/csv', index_col=0 = '인덱스로 지정할 column 명') index 지정
+        # 0 은 컬럼명 중에서 첫번째를 의미한다(배열구조)
+        # pd.read_csv(f'경로/파일명/csv', index_col=0 = '인덱스로 지정할 column 명') Index 지정
 
-        return pd.read_csv(f'{this.dname}{fname}', index_col=0)
+     
+        return pd.read_csv(f'{self.ds.dname}{fname}', index_col=0)
     
-    def new_dframe(self, fname) -> object:
-        this = self.ds
-        #pd.read_csv('경로/파일명.csv') Index를 지정하지 않음
-        return pd.DataFrame(f'{this.dname}{fname}')
+    def new_dataframe_no_index(self, fname: str) -> object:
+        # pd.read_csv('경로/파일명.csv') Index 를 지정하지 않음
+        return pd.read_csv(f'{self.ds.dname}{fname}')
 
-
-    def save_model(self, fname, dfname) -> object:
+    def save_model(self, fname, dfname) -> pd.DataFrame:
         this = self.ds
         '''
         풀옵션은 다음과 같다

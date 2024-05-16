@@ -4,14 +4,16 @@ from langchain.schema import HumanMessage, AIMessage, SystemMessage
 import os
 from dotenv import load_dotenv
 import uvicorn
-from app.api.titanic.model.titanic_model import TitanicModel
 from app.main_router import router
+from icecream import ic
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 load_dotenv(os.path.join(BASE_DIR, ".env"))
 
 from pydantic import BaseModel
+
 from starlette.middleware.cors import CORSMiddleware
+
 
 class Request(BaseModel):
     question: str
@@ -19,9 +21,10 @@ class Request(BaseModel):
 class Response(BaseModel):
     answer: str
 
+
 app = FastAPI()
 
-app.include_router(router, prefix='/api')
+app.include_router(router, prefix="/api")
 
 origins = ['*']
 
@@ -37,10 +40,10 @@ app.add_middleware(
 def read_root():
     return {"Hello": "World"}
 
-#@app.post("/chat")
+
+# @app.post("/chat")
 def chatting(req:Request):
-    print('딕셔너리 내용')
-    print(req)
+    ic(req)
     # template = PromptTemplate.from_template("{country}의 수도는 어디야 ?")
     # template.format(country=req.question)
  
@@ -51,23 +54,24 @@ def chatting(req:Request):
         model_name='gpt-3.5-turbo-0613',  # 모델명
         )
 
+
     # 질의
-    print(f'{chat.predict(req.question)}')
+    ic(f'{chat.predict(req.question)}')
     
+
+
     # message = [
     #     SystemMessage(content="You are a traveler. I know the capitals of every country in the world.", type="system"),
     #     HumanMessage(content="{country}의 수도는 어디야 ? ", type="human"),
     #     AIMessage(content="서울 입니다.", type="ai"),
     # ]
 
-    # print(chat.predict_messages(message))
 
     return Response(answer=chat.predict(req.question))
 
 @app.get("/items/{item_id}")
 def read_item(item_id: int, q: str = None):
     return {"item_id": item_id, "q": q}
-
 #uvicorn main:app --reload --host 127.0.0.1
 
 if __name__ == "__main__":

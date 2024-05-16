@@ -1,8 +1,9 @@
 from fastapi import APIRouter
 from pydantic import BaseModel
+from icecream import ic
 
 from app.api.titanic.service.titanic_service import TitanicService
-
+CONTEXT = 'C:\\Users\\bitcamp\\IdeaProjects\\rod\\chat-server\\chat-back\\app\\api\\context\\'
 
 router = APIRouter()
 service = TitanicService()
@@ -15,12 +16,12 @@ class Response(BaseModel):
 
 @router.post("/titanic")
 async def titanic(req:Request):
-    print('타이타닉 딕셔너리 내용')
-    hello = 'C:\\Users\\bitcamp\\IdeaProjects\\rod\\chat-server\\chat-back\\app\\api\\titanic\\data\\hello.txt'
+    ic('타이타닉 딕셔너리 내용')
+    hello = f'{CONTEXT}data\\hello.txt'
     f = open(hello, "r", encoding="utf-8")
     data = f.read()
-    print(data)
+    ic(data)
     f.close()
-    service.process()
-    print(req)
+    service.preprocess()
+    ic(req)
     return {"answer": "생존자는 100명이야."}

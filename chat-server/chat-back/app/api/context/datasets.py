@@ -1,13 +1,15 @@
 from dataclasses import dataclass
 
+import pandas as pd
+
 
 @dataclass
 class DataSets:
     fname: str # file name
     dname : str #data path
     sname: str #save path
-    train: object
-    test: object
+    train: pd.DataFrame
+    test: pd.DataFrame
     id: str
     label: str
 
