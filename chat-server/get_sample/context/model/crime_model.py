@@ -19,12 +19,10 @@ class CrimeModel:
     def sname(self, sname: str): self._sname = sname
     @property
     def fname(self) -> str: return self._fname
-
     @fname.setter
     def fname(self, fname: str): self._fname = fname
 
     @property
     def fname2(self) -> str: return self._fname2
-
-    @fname.setter
+    @fname2.setter
     def fname2(self, fname2: str): self._fname2 = fname2
