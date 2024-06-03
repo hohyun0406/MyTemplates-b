@@ -51,22 +51,6 @@ export default function UserColumns() : GridColDef[]{
             headerName : '번호',
             renderCell: ({row} : CellType) => CustomTypography(row.phone, "1.2rem")
         },
-        {
-            flex: 0.04,
-            minWidth : 30,
-            sortable : false,
-            field: 'address',
-            headerName : '주소',
-            renderCell: ({row} : CellType) => CustomTypography(row.address, "1.2rem")
-        },
-        {
-            flex: 0.04,
-            minWidth : 30,
-            sortable : false,
-            field: 'job',
-            headerName : '직업',
-            renderCell: ({row} : CellType) => CustomTypography(row.job, "1.2rem")
-        },
 
     ]
 }
