@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: mongo
+  data:
+    mongodb:
+      host: 223.130.154.72
+      port: 27017
+      authentication-database: admin
+      username: root
+      password: root
+      database: fluxdb
+
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: debug
+        type: trace
+jwt:
+  iss: von.com
+  exp: 24 * 60 * 60 * 1000
+  secret: kjhjmtkjhjmtkjhjmtkjhjmtkjhjmtkjhjmtkjhjmtkjhjmtkjhjmt
