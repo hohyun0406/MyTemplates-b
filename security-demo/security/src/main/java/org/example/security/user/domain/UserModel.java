@@ -1,40 +1,57 @@
 package org.example.security.user.domain;
 
-import lombok.Data;
-import org.example.security.order.domain.OrderModel;
-
-import jakarta.persistence.Column;
-import jakarta.persistence.ElementCollection;
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
-import jakarta.validation.constraints.Size;
-import java.util.ArrayList;
-import java.util.List;
+import jakarta.persistence.*;
+import lombok.*;
+import lombok.experimental.FieldDefaults;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+import java.io.Serializable;
+import java.util.*;
 
 @Entity @Data
 @Table(name = "users")
-public class UserModel {
-    @Id @Column(name = "user_id")
-    @GeneratedValue
-    private long userId;
-    @Column(name = "username", unique = true, nullable = false)
-    private String username;
-    @Column(name = "password", nullable = false)
-    @Size(min=8, message = "8자리 이상 입력하시오")
-    private String password;
-    @Column(name = "name", nullable = false)
-    private String name;
-    @Column(name = "email", nullable = false, unique = true)
-    private String email;
-    @Column(name = "reg_date")
-    private String regDate;
-    @OneToMany(mappedBy = "user")
-    private List<OrderModel> orders = new ArrayList<>();
-    @ElementCollection(fetch = FetchType.EAGER)
-    public List<Role> roles;
+public class UserModel implements Serializable , UserDetails {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    Long userId ;
+    String username;
+    String firstName ;
+    String lastName ;
+    String email;
+    String password ;
+    //Un utilisateur peut avoir plusieurs roles
+    @ManyToMany(fetch = FetchType.EAGER  , cascade = CascadeType.PERSIST)
+    List <RoleModel> roles ;
+    public UserModel (String email , String password , List<RoleModel> roles) {
+        this.email= email ;
+        this.password=password ;
+        this.roles=roles ;}
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        List<GrantedAuthority> authorities = new ArrayList<>();
+        this.roles.forEach(role -> authorities.add(new SimpleGrantedAuthority(role.getRoleName())));
+        return authorities;
+    }
+    @Override
+    public String getUsername() {
+        return this.username;
+    }
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
 
 }

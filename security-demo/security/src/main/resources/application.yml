@@ -29,7 +29,17 @@ logging:
       hibernate:
         SQL: debug
         type: trace
+      springframework:
+        security: DEBUG
+        web: DEBUG
+        data: DEBUG
+        hibernate: DEBUG
+        jpa: DEBUG
+        sql: DEBUG
+        jwt: DEBUG
 jwt:
-  iss : lawmate.site
-  exp: 24 * 60 * 60 * 1000
-  secret : keykeyetkeykeyetkeykeyetkeykeyetkeykeyetkeykeyetkeykeyetkeykeyetkeykeyetkeykeyetkeykeyetkeykeyet
+  iss: lawmate.site
+  expiration: 86400000 # 24 * 60 * 60 * 1000 in milliseconds
+  refresh-token:
+    expiration: 604800000 # 7 days in milliseconds
+  secret: keykeyetkeykeyetkeykeyetkeykeyetkeykeyetkeykeyetkeykeyetkeykeyetkeykeyetkeykeyetkeykeyetkeykeyetkeykeyet
