@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="00b5a751-3392-445b-a92f-911bddd947b9" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/security-demo/web-flux/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/security-demo/web-flux/src/main/java/org/example/webflux/jwt/LoginController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/security-demo/web-flux/src/main/java/org/example/webflux/jwt/LoginRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/security-demo/web-flux/src/main/java/org/example/webflux/jwt/LoginResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/security-demo/web-flux/src/main/java/org/example/webflux/jwt/ProfileController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/security-demo/web-flux/src/main/java/org/example/webflux/jwt/ProfileResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/security-demo/web-flux/src/main/java/org/example/webflux/jwt/TokenProvider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/security-demo/web-flux/src/main/java/org/example/webflux/jwt/security/JwtAuthenticationException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/security-demo/web-flux/src/main/java/org/example/webflux/jwt/security/JwtAuthenticationManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/security-demo/web-flux/src/main/java/org/example/webflux/jwt/security/JwtServerAuthenticationConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/security-demo/web-flux/src/main/java/org/example/webflux/jwt/security/JwtService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/security-demo/web-flux/src/main/java/org/example/webflux/jwt/security/JwtToken.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/security-demo/web-flux/src/main/java/org/example/webflux/jwt/security/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/security-demo/web-flux/src/main/java/org/example/webflux/jwt/security/UserDetailsConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/security-demo/web-flux/src/main/java/org/example/webflux/user/controller/AdminController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/security-demo/web-flux/src/main/java/org/example/webflux/user/controller/SuperAdminController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/security-demo/web-flux/src/main/java/org/example/webflux/user/domain/RoleModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/security-demo/web-flux/src/main/java/org/example/webflux/user/domain/RoleName.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/security-demo/web-flux/src/main/java/org/example/webflux/user/domain/UserDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/security-demo/web-flux/src/main/java/org/example/webflux/user/domain/UserModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/security-demo/web-flux/src/main/java/org/example/webflux/user/repository/RoleRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/security-demo/web-flux/src/main/java/org/example/webflux/user/repository/UserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/security-demo/web-flux/src/main/java/org/example/webflux/user/service/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/security-demo/web-flux/src/main/java/org/example/webflux/user/service/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security-demo/prisma-next/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/security-demo/prisma-next/app/globals.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security-demo/prisma-next/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/security-demo/prisma-next/app/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security-demo/prisma-next/next.config.mjs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/security-demo/prisma-next/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/security-demo/prisma-next/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security-demo/prisma-next/postcss.config.mjs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/security-demo/prisma-next/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/security-demo/prisma-next/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security-demo/web-flux/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/security-demo/web-flux/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security-demo/web-flux/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/security-demo/web-flux/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security-demo/web-flux/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/security-demo/web-flux/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/soccer - server/Soccer-BE-Rod" beforeDir="false" afterPath="$PROJECT_DIR$/soccer - server/Soccer-BE-Rod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/soccer - server/Soccer-BE-Rod/src/main/java/com/rod/api/team/repository/TeamDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/soccer - server/Soccer-BE-Rod/src/main/java/com/rod/api/team/repository/TeamDAOImpl.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 5
+}]]></component>
+  <component name="ProjectId" id="2hg8Df1kMdFWKw1XlZGKaDgd1aQ" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="00b5a751-3392-445b-a92f-911bddd947b9" name="Changes" comment="" />
+      <created>1718004242914</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1718004242914</updated>
+      <workItem from="1718004243818" duration="19000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

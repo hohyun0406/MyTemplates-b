@@ -1,22 +1,16 @@
 spring:
   application:
-    name: mongo
+    name: rootapp
   data:
     mongodb:
-      host: 223.130.154.72
-      port: 27017
-      authentication-database: admin
-      username: root
-      password: root
-      database: fluxdb
-
+      uri: mongodb://root:root@db-container:27017/rootdb
+  sql:
+    init:
+      mode: always
+      encoding: UTF-8
 logging:
   level:
     org:
       hibernate:
         SQL: debug
         type: trace
-jwt:
-  iss: von.com
-  exp: 24 * 60 * 60 * 1000
-  secret: kjhjmtkjhjmtkjhjmtkjhjmtkjhjmtkjhjmtkjhjmtkjhjmtkjhjmt
