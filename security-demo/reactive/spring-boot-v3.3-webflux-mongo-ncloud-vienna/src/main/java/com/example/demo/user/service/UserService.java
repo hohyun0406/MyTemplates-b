@@ -5,7 +5,6 @@ import java.util.Optional;
 import com.example.demo.common.domain.Messenger;
 import com.example.demo.user.domain.UserDTO;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.user.domain.UserModel;
@@ -19,7 +18,6 @@ import reactor.core.publisher.Mono;
 @RequiredArgsConstructor
 @Slf4j
 public class UserService {
-
 
   private final UserRepository userRepository;
 
@@ -35,20 +33,22 @@ public class UserService {
     return userRepository.findById(id);
   }
 
-  public Mono<UserModel> addUser(UserModel user) {
-    return userRepository.save(user);
+  public Mono<Messenger> addUser(UserModel user) {
+    return userRepository.save(user).flatMap(i -> Mono.just(Messenger.builder().message("SUCCESS").build()))
+            .switchIfEmpty(Mono.just(Messenger.builder().message("FAILURE").build()))
+            ;
   }
 
   public Mono<UserModel> updateUser(String id, UserModel user) {
     return userRepository.findById(id).map(Optional::of).defaultIfEmpty(Optional.empty())
-        .flatMap(optionalUser -> {
-          if (optionalUser.isPresent()) {
-            user.setUserId(id);
-            return userRepository.save(user);
-          }
+            .flatMap(optionalUser -> {
+              if (optionalUser.isPresent()) {
+                user.setUserId(id);
+                return userRepository.save(user);
+              }
 
-          return Mono.empty();
-        });
+              return Mono.empty();
+            });
   }
 
   public Mono<Void> deleteUser(String id) {
@@ -63,12 +63,30 @@ public class UserService {
     return userRepository.findByLastName(lastName);
   }
 
-  public Mono<Messenger> login(UserDTO user){
-    log.info("서비스로 들어오는 email : {}",user.getEmail());
-    Mono<UserModel> temp = userRepository.findByEmail(user.getEmail());
-    log.info("User Repo에서 가져온 로그인 정보 : {}", temp.toString());
-    temp.subscribe(System.out::println);
-    return null;
-  }
+  public Mono<Messenger> login(UserModel user) {
+    log.info("로그인에 사용되는 이메일 : {}",user.getEmail());
+    // Sync
+    return userRepository.findByEmail(user.getEmail())
+            .filter(i -> i.getPassword().equals(user.getPassword()))
+            .map(i -> UserDTO.builder().email(i.getEmail()).firstName(i.getFirstName()).lastName(i.getLastName()).build())
+            .log()
+            .map(i -> Messenger.builder().message("SUCCESS").data(i)
+                    .accessToken("fake-access-token")
+                    .refreshToken("fake-refresh-token")
+                    .build())
 
+            ;
+  }
+  public Mono<Messenger> login2(UserModel user) {
+    log.info("로그인 2 에 사용되는 이메일 : {}",user.getEmail());
+    // Async
+    // attach 방식으로 사용
+    return userRepository.findByEmail(user.getEmail())
+            .filter(i -> i.getPassword().equals(user.getEmail()))
+            .flatMap(i -> Mono.just(UserDTO.builder().email(i.getEmail()).firstName(i.getFirstName()).lastName(i.getLastName()).build()))
+            .log()
+            .flatMap(i -> Mono.just(Messenger.builder().data(i).build()))
+
+            ;
+  }
 }

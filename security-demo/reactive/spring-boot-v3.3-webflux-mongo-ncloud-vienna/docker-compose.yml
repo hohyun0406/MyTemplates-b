@@ -1,15 +1,13 @@
 services:
   database:
-    container_name: db-container
+    container_name: mongodb-container
     image: mongo
     volumes:
-      - ~/docker/mongo/db/etc/mongo/conf.d:/etc/mongo/conf.d:ro
-      - ~/docker/mongo/db/var/lib/mongo:/var/lib/mongo
-      - ~/docker/mongo/db/var/log/mongo:/var/log/mongo
+      - ./data/mongodb:/data/db
     environment:
       - MONGO_INITDB_ROOT_USERNAME=root
       - MONGO_INITDB_ROOT_PASSWORD=root
-      - MONGO_INITDB_DATABASE=rootdb
+      - MONGO_INITDB_DATABASE=mydb
     restart: always
     ports:
       - "27017:27017"

@@ -19,21 +19,16 @@ public class UserModel {
     String email;
     String password ;
 
+    // List <RoleModel> roles ;
 
-    List <RoleModel> roles ;
-
-
-
-      @Override
-      public String toString() {
+    @Override
+    public String toString() {
         return "UserModel [userId=" + userId +
-         ", firstName=" + firstName + 
-         ", lastName=" + lastName + 
-         ", email=" + email + 
-         ", password=" + password + 
-         "]";
-      }
+                ", firstName=" + firstName +
+                ", lastName=" + lastName +
+                ", email=" + email +
+                ", password=" + password +
+                "]";
+    }
 
-
-    
 }
