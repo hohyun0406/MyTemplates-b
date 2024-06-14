@@ -1,0 +1,27 @@
+
+spring:
+    main:
+        allow-bean-definition-overriding: true
+        web-application-type: reactive
+    application:
+        name: rootapp
+    data:
+        mongodb:
+            uri: mongodb://root:root@223.130.154.72:27017/mydb?retryWrites=true&w=majority&authSource=admin
+    sql:
+        init:
+            mode: always
+            encoding: UTF-8
+logging:
+    level:
+        org:
+            hibernate:
+                SQL: debug
+                type: trace
+
+jwt:
+    secret: hoooo
+    expiration: 86400000
+
+server:
+  port : 8888
