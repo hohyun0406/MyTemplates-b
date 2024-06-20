@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="5013febe-1a05-4731-880c-969dc46264d3" name="navercommon">
+        <fileTransfer accessType="SFTP" host="110.165.17.174" port="22" sshConfigId="4cab12f9-f755-4582-914d-79e5da434188" sshConfig="root@110.165.17.174:22 key" keyPair="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

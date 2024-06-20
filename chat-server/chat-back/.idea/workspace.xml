@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="57924720-493f-48a6-b0e5-462aba77e9f3" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/mongo/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mysql/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../security-demo/reactive/spring-boot-v3.3-webflux-mongo-ncloud-vienna/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../security-demo/reactive/spring-boot-v3.3-webflux-mongo-ncloud-vienna/docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../soccer - server/Soccer-BE-Rod" beforeDir="false" afterPath="$PROJECT_DIR$/../../soccer - server/Soccer-BE-Rod" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -31,10 +38,19 @@
     &quot;WebServerToolWindowPanel.toolwindow.show.size&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\bitcamp\IdeaProjects\study-fs-navercloud\chat-server\chat-back\mysql" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -45,6 +61,8 @@
       <updated>1716447484950</updated>
       <workItem from="1716447486844" duration="104000" />
       <workItem from="1716520574085" duration="6000" />
+      <workItem from="1718871586574" duration="2960000" />
+      <workItem from="1718876030528" duration="152000" />
     </task>
     <servers />
   </component>
